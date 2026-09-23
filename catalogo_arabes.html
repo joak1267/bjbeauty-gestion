@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>BJ BEAUTY - Catálogo Perfumería Árabe</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+@page {
+    size: 860px 1216px;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+.page {
+    width: 860px;
+    height: 1216px;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 36px 32px 32px 32px;
+    overflow: hidden;
+}
+.title-container {
+    text-align: center;
+    margin-bottom: 12px;
+}
+.sub-script {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: #ffd1dc;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+    margin-bottom: -6px;
+}
+.sub-script-masc {
+    color: #cce4ff;
+    text-shadow: 0 0 10px rgba(65, 105, 225, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+}
+.sub-script-gold {
+    color: #ffe6a3;
+    text-shadow: 0 0 10px rgba(223, 177, 91, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+}
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 2px 3px 8px rgba(0,0,0,0.95);
+}
+.price-badge-pill {
+    display: inline-block;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid #dfb15b;
+    color: #ffe8b2;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* ESTRUCTURA A 2 COLUMNAS POR PÁGINA */
+.fragrance-list-card-2col {
+    width: 100%;
+    flex: 1;
+    background: rgba(10, 8, 18, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(223, 177, 91, 0.4);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.8);
+    margin-bottom: 8px;
+}
+.col-divider {
+    background: linear-gradient(180deg, transparent, rgba(223, 177, 91, 0.5) 20%, rgba(223, 177, 91, 0.5) 80%, transparent);
+    width: 1px;
+    height: 100%;
+}
+.col-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.item-row:last-child {
+    border-bottom: none;
+}
+.item-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 235px;
+}
+.item-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    color: #dfb15b;
+    text-align: right;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+.page-footer-num {
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+.header-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+.header-brand-logo img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid #dfb15b;
+    box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+}
+.header-brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #dfb15b;
+    letter-spacing: 3px;
+}
+</style>
+</head>
+<body>
+
+<div class="page" style="background-image: linear-gradient(180deg, rgba(8,6,14,0.3) 0%, rgba(8,6,14,0.85) 60%, #050408 100%), url('fondo_arabes_dorado.jpg'); justify-content: center; align-items: center; text-align: center;">
+    <div style="margin-top: 170px;">
+        <img src="logo_bj_beauty.png" style="width: 215px; height: 215px; border-radius: 50%; box-shadow: 0 0 50px rgba(223, 177, 91, 0.65), 0 0 25px rgba(192, 132, 252, 0.5); border: 2px solid #dfb15b; margin-bottom: 25px;">
+        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 34px; color: #ffe6a3; margin-bottom: 4px;">Edición de Lujo Oriental</div>
+        <div style="font-family: 'Cinzel', serif; font-size: 46px; font-weight: 900; letter-spacing: 5px; color: #ffffff; text-shadow: 0 0 25px rgba(255,255,255,0.7);">PERFUMERÍA ÁRABE</div>
+        <div style="font-size: 15px; letter-spacing: 4px; color: #dfb15b; text-transform: uppercase; font-weight: 600; margin-top: 6px;">Oud • Ámbar • Vainilla • Especias • Tendencias Virales</div>
+        
+        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 35px;">
+            <span style="background: rgba(15, 10, 25, 0.88); border: 1.5px solid #dfb15b; color: #ffe6a3; padding: 12px 26px; border-radius: 25px; font-weight: 800; font-size: 16px;">👑 PRECIO: $24.000 C/U</span>
+            <span style="background: rgba(15, 10, 25, 0.88); border: 1.5px solid #c084fc; color: #e9d5ff; padding: 12px 26px; border-radius: 25px; font-weight: 700; font-size: 16px;">✨ Máxima Concentración & Estela</span>
+        </div>
+    </div>
+</div>
+
+<div class="page" style="background-image: url('fondo_arabes_dorado.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script-gold">Sensualidad & Opulencia</div>
+        <div class="main-title">ÁRABES FEMENINAS</div>
+        <div class="price-badge-pill">PRECIO: $24.000 • FRUTALES GOURMAND, DULCES & FLORALES</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Eclaire">Eclaire</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Eclaire Pistache">Eclaire Pistache</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Eden Sparkling">Eden Sparkling</span><span class="item-brand">Kayali</span></div><div class="item-row"><span class="item-name" title="Emaan">Emaan</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Fakhar Rose">Fakhar Rose</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Haya">Haya</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Mayar">Mayar</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Mayar Cherry Intense">Mayar Cherry Intense</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Niche Femme">Niche Femme</span><span class="item-brand">Bharara</span></div><div class="item-row"><span class="item-name" title="Noble Blush">Noble Blush</span><span class="item-brand">Lattafa</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Opulent Musk">Opulent Musk</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Qimmah">Qimmah</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Sakeena">Sakeena</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Teriaq">Teriaq</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Yara">Yara</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Yara Candy">Yara Candy</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Yara Elixir">Yara Elixir</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Yara Moi">Yara Moi</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Yara Tous">Yara Tous</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Victoria">Victoria</span><span class="item-brand">Lattafa (Nuevo)</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Colección Árabe</div>
+</div>
+
+<div class="page" style="background-image: url('fondo_arabes_noche.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script-gold">Poder & Misterio</div>
+        <div class="main-title">ÁRABES MASCULINAS (I)</div>
+        <div class="price-badge-pill">PRECIO: $24.000 • BEST SELLERS GLOBALES & VIRALES</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="9PM">9PM</span><span class="item-brand">Afnan</span></div><div class="item-row"><span class="item-name" title="9PM Elixir">9PM Elixir</span><span class="item-brand">Afnan</span></div><div class="item-row"><span class="item-name" title="Adeeb">Adeeb</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Alquiam Gold">Alquiam Gold</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Amber Oud Blue Edition">Amber Oud Blue Edition</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Amber Oud Dubai Night">Amber Oud Dubai Night</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Ansaam Silver">Ansaam Silver</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Asad">Asad</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Asad Bourbon">Asad Bourbon</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Asad Elixir">Asad Elixir</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Atlas">Atlas</span><span class="item-brand">Lattafa</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Badee Al Oud for Glory">Badee Al Oud for Glory</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Bharara King">Bharara King</span><span class="item-brand">Bharara</span></div><div class="item-row"><span class="item-name" title="Blue Saphire">Blue Saphire</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Club de Nuit">Club de Nuit</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Club de Nuit Iconic">Club de Nuit Iconic</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Club De Nuit Lionheart">Club De Nuit Lionheart</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Club de Nuit Oud">Club de Nuit Oud</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Fakar Black">Fakar Black</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Hawas">Hawas</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Hawas Atlantis">Hawas Atlantis</span><span class="item-brand">Rasasi</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Colección Árabe</div>
+</div>
+
+<div class="page" style="background-image: url('fondo_arabes_vortice.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script-gold">Intensidad Oriental</div>
+        <div class="main-title">ÁRABES MASCULINAS (II)</div>
+        <div class="price-badge-pill">PRECIO: $24.000 • NOTAS DE OUD, CUERO & MADERAS</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Hawas Elixir">Hawas Elixir</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Hawas Ice">Hawas Ice</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Hawas Malibu">Hawas Malibu</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Jean Lowe Immortal">Jean Lowe Immortal</span><span class="item-brand">Maison Alhambra</span></div><div class="item-row"><span class="item-name" title="Khamrah">Khamrah</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Khamrah Dukhan">Khamrah Dukhan</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Khamrah Qawa">Khamrah Qawa</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Maahir Black">Maahir Black</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Mandarine Sky">Mandarine Sky</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Odissey Mandarine Sky Elixir">Odissey Mandarine Sky Elixir</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Oud For Greatness">Oud For Greatness</span><span class="item-brand">Initio</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Qaed Al Fursan">Qaed Al Fursan</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Salvo">Salvo</span><span class="item-brand">Maison Alhambra</span></div><div class="item-row"><span class="item-name" title="Suqraat">Suqraat</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Tag">Tag</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="The Kingdom">The Kingdom</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Altair">Altair</span><span class="item-brand">Parfums de Marly</span></div><div class="item-row"><span class="item-name" title="Amber Oud Aqua Dubai">Amber Oud Aqua Dubai</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Asad Zanzibar">Asad Zanzibar</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Khamrah Waha">Khamrah Waha</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Liquid Brun">Liquid Brun</span><span class="item-brand">French Avenue</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Colección Árabe</div>
+</div>
+
+<div class="page" style="background-image: url('fondo_arabes_cielo.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script-gold">Equilibrio & Alta Gama</div>
+        <div class="main-title">ÁRABES UNISEX</div>
+        <div class="price-badge-pill">PRECIO: $24.000 • ARMONÍAS COMPARTIDAS SIN GÉNERO</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Al Jawara">Al Jawara</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Amber Oud Gold">Amber Oud Gold</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Amber Rouge">Amber Rouge</span><span class="item-brand">Orientica</span></div><div class="item-row"><span class="item-name" title="Badee Al Oud for Amethyst">Badee Al Oud for Amethyst</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Badee Al Oud Honor y Glory">Badee Al Oud Honor y Glory</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Badee Al Oud Sublime">Badee Al Oud Sublime</span><span class="item-brand">Lattafa</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Club de Nuit Untold">Club de Nuit Untold</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Nebras">Nebras</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Odyssey Spectra">Odyssey Spectra</span><span class="item-brand">Odyssey</span></div><div class="item-row"><span class="item-name" title="Oud Saffron">Oud Saffron</span><span class="item-brand">Orientica</span></div><div class="item-row"><span class="item-name" title="Thara">Thara</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Yum Pistachio Gelato">Yum Pistachio Gelato</span><span class="item-brand">Kayali</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Colección Árabe</div>
+</div>
+
+<div class="page" style="background-image: linear-gradient(rgba(8,6,14,0.9), rgba(8,6,14,0.95)), url('fondo_arabes_noche.jpg'); justify-content: center;">
+    <div style="text-align: center; max-width: 680px; background: rgba(18, 14, 28, 0.88); border: 1.5px solid #dfb15b; border-radius: 20px; padding: 45px 35px; box-shadow: 0 12px 45px rgba(0,0,0,0.85);">
+        <img src="logo_bj_beauty.png" style="width: 110px; height: 110px; border-radius: 50%; box-shadow: 0 0 25px rgba(223, 177, 91, 0.5); border: 1.5px solid #dfb15b; margin-bottom: 20px;">
+        <div style="font-family: 'Cinzel', serif; font-size: 32px; color: #dfb15b; margin-bottom: 12px; font-weight: 800;">¿CÓMO PEDIR TUS ÁRABES?</div>
+        <p style="color: #e2e8f0; font-size: 16px; margin-bottom: 25px; line-height: 1.6;">Elegí tus fragancias árabes favoritas y coordiná tu entrega directamente por WhatsApp.</p>
+        
+        <div style="background: rgba(0,0,0,0.55); border: 1px solid rgba(223, 177, 91, 0.35); border-radius: 12px; padding: 20px; margin-bottom: 25px; text-align: left;">
+            <div style="font-size: 15px; color: #ffe6a3; margin-bottom: 8px;">💳 <b>Medios de Pago:</b></div>
+            <div style="color: #cbd5e1; font-size: 14px; margin-bottom: 14px;">• Efectivo / Transferencias (Mercado Pago, Cuenta DNI, Bancarias)</div>
+            <div style="font-size: 15px; color: #ffd1dc; margin-bottom: 8px;">📦 <b>Entregas:</b></div>
+            <div style="color: #cbd5e1; font-size: 14px;">• Puntos de encuentro y envíos coordinados a todo el país.</div>
+        </div>
+
+        <div style="font-family: 'Cinzel', serif; font-size: 22px; color: #fff; margin-bottom: 6px;">BJ BEAUTY • COLECCIÓN ÁRABE DUBÁI</div>
+        <div style="color: #dfb15b; font-size: 14px; letter-spacing: 2px;">OPULENCIA • ESTELA • MÁXIMA PERSISTENCIA</div>
+    </div>
+</div>
+</body></html>

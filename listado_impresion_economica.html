@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJ BEAUTY - Listado Oficial para Imprimir (Hoja Blanca)</title>
+    <style>
+        /* ESTILO 100% BLANCO Y NEGRO - AHORRO MÁXIMO DE TINTA */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.3;
+            padding: 20px;
+        }
+
+        .no-print-bar {
+            background: #222;
+            color: #fff;
+            padding: 12px 20px;
+            max-width: 950px;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .no-print-bar a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .btn-print {
+            background: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-print:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* HOJA BLANCA PARA IMPRESIÓN */
+        .page-sheet {
+            background: #ffffff;
+            color: #000000;
+            width: 100%;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        /* CABECERA FORMAL */
+        header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .brand-sub {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .sheet-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 11px;
+            border-top: 1px dashed #777;
+            padding-top: 6px;
+        }
+
+        /* RESUMEN DE PRECIOS */
+        .pricing-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #000;
+            padding: 8px;
+            background: #fafafa;
+        }
+
+        .price-box {
+            text-align: center;
+        }
+
+        .price-box .title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .price-box .val {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .price-box .note {
+            font-size: 9px;
+            color: #333;
+        }
+
+        /* TABLAS EN 2 COLUMNAS POR PÁGINA */
+        .section-title {
+            background: #000;
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 15px 0 8px;
+        }
+
+        .section-title.light {
+            background: #e5e5e5;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        table.perfume-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10.5px;
+        }
+
+        table.perfume-table th {
+            border-bottom: 1.5px solid #000;
+            text-align: left;
+            padding: 3px 4px;
+            font-weight: 800;
+            font-size: 9.5px;
+            text-transform: uppercase;
+        }
+
+        table.perfume-table td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 3px 4px;
+            vertical-align: middle;
+        }
+
+        table.perfume-table tr:hover {
+            background: #f8f8f8;
+        }
+
+        .col-check {
+            width: 24px;
+            text-align: center;
+        }
+
+        .check-box-print {
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            border: 1.2px solid #000;
+            border-radius: 2px;
+        }
+
+        .col-name {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .col-brand {
+            font-size: 9.5px;
+            color: #444;
+        }
+
+        .col-price {
+            width: 65px;
+            text-align: right;
+            font-weight: 800;
+        }
+
+        .footer-print {
+            margin-top: 20px;
+            border-top: 1px solid #000;
+            padding-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+
+        /* REGLAS ESTRICTAS DE IMPRESIÓN */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+            .no-print-bar {
+                display: none !important;
+            }
+            .page-sheet {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            .section-title {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            table.perfume-table td, table.perfume-table th {
+                padding: 2px 3px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-bar">
+        <div>
+            <strong>📄 Listado BJ BEAUTY en Hoja Blanca y Letras Negras</strong> | Optimizado para no gastar tinta
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+            <a href="index.html">← Menú Principal</a>
+            <button class="btn-print" onclick="window.print()">🖨️ Imprimir Listado</button>
+        </div>
+    </div>
+
+    <div class="page-sheet">
+        
+        <header>
+            <div class="brand-name">BJ BEAUTY</div>
+            <div class="brand-sub">Planilla Oficial de Fragancias & Control de Pedidos</div>
+            <div class="sheet-meta">
+                <span><strong>Fecha:</strong> ____ / ____ / 2026</span>
+                <span><strong>Cliente / Vendedor:</strong> ____________________________________</span>
+                <span><strong>Tel / Contacto:</strong> _________________________</span>
+            </div>
+        </header>
+
+        <!-- TARIFAS VIGENTES -->
+        <div class="pricing-summary">
+            <div class="price-box">
+                <div class="title">Perfumes 60ml</div>
+                <div class="val">$22.000</div>
+                <div class="note">Promo: 2 x $40.000</div>
+            </div>
+            <div class="price-box">
+                <div class="title">Árabes & Cápsula</div>
+                <div class="val">$24.000</div>
+                <div class="note">Edición Limitada</div>
+            </div>
+            <div class="price-box">
+                <div class="title">Combo Auto + Textil</div>
+                <div class="val">$11.000</div>
+                <div class="note">Difusor 8ml + Textil 30ml</div>
+            </div>
+            <div class="price-box">
+                <div class="title">Promo Auto x2</div>
+                <div class="val">$20.000</div>
+                <div class="note">2 Combos Completos</div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 1: LÍNEA FEMENINA -->
+        <!-- ========================================== -->
+        <div class="section-title">1. FRAGANCIAS FEMENINAS (DISEÑADOR & ÁRABES)</div>
+        
+        <div class="two-cols">
+            <!-- Columna Femenina 1 -->
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Fragancia</th>
+                        <th>Marca / Casa</th>
+                        <th class="col-price">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Yara / Candy / Tous / Moi / Elixir</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Eclaire / Eclaire Pistache</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fakhar Rosé</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Mayar / Mayar Cherry Intense</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Eden Sparkling</td><td class="col-brand">Kayali (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Teriaq / Sakeena / Qimmah</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Noble Blush / Opulent Musk</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Victoria</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Good Girl (Blush, Supreme, Dazzling)</td><td class="col-brand">Carolina Herrera</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">212 (VIP, VIP Rosé, Sexy, Heroes)</td><td class="col-brand">Carolina Herrera</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">La Vida es Bella (Elixir, Rose)</td><td class="col-brand">Lancôme</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Idôle / Idôle Aura / Hypnôse</td><td class="col-brand">Lancôme</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">J'Adore / Hypnotic Poison / Miss Dior</td><td class="col-brand">Christian Dior</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Scandal (Gold, Le Parfum, By Night)</td><td class="col-brand">Jean Paul Gaultier</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Divine / Divine Elixir / La Belle</td><td class="col-brand">Jean Paul Gaultier</td><td class="col-price">$22.000</td></tr>
+                </tbody>
+            </table>
+
+            <!-- Columna Femenina 2 -->
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Fragancia</th>
+                        <th>Marca / Casa</th>
+                        <th class="col-price">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Black Opium (Neon, Over Red)</td><td class="col-brand">Yves Saint Laurent</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Libre / Mon Paris</td><td class="col-brand">Yves Saint Laurent</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Olympea (Blossom, Intense, Solar)</td><td class="col-brand">Paco Rabanne</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fame (Couture, In Love)</td><td class="col-brand">Paco Rabanne</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Lady Million (Empire, Fabulous)</td><td class="col-brand">Paco Rabanne</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">L'Interdit / L'Interdit Rouge / Ange</td><td class="col-brand">Givenchy</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Light Blue / Devotion / Q</td><td class="col-brand">Dolce & Gabbana</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">My Way / Sí / Sí Passione</td><td class="col-brand">Giorgio Armani</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Power of You (Nuevo)</td><td class="col-brand">Giorgio Armani</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Born in Roma Extradose (Nuevo)</td><td class="col-brand">Valentino</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Chanel N°5 / Coco Mademoiselle</td><td class="col-brand">Chanel</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Angel / Alien / Goddess / Nova</td><td class="col-brand">Thierry Mugler</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Delina</td><td class="col-brand">Parfums de Marly</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Cloud / Sweet Like Candy</td><td class="col-brand">Ariana Grande</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Toy 2 / Toy 2 Bubble Gum</td><td class="col-brand">Moschino</td><td class="col-price">$22.000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 2: LÍNEA MASCULINA -->
+        <!-- ========================================== -->
+        <div class="section-title" style="margin-top:25px;">2. FRAGANCIAS MASCULINAS (DISEÑADOR & ÁRABES)</div>
+        
+        <div class="two-cols">
+            <!-- Columna Masculina 1 -->
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Fragancia</th>
+                        <th>Marca / Casa</th>
+                        <th class="col-price">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">9PM / 9PM Elixir</td><td class="col-brand">Afnan (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Asad / Asad Zanzibar / Bourbon</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Club de Nuit (Iconic, Lionheart)</td><td class="col-brand">Armaf (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Hawas / Hawas Ice / Atlantis</td><td class="col-brand">Rasasi (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Khamrah / Khamrah Waha / Qawa</td><td class="col-brand">Lattafa (Árabe)</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Liquid Brun (Nuevo)</td><td class="col-brand">French Avenue</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Amber Oud Aqua Dubai / Dubai Night</td><td class="col-brand">Al Haramain</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Jean Lowe Immortal / Salvo</td><td class="col-brand">Maison Alhambra</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Altair (Nuevo)</td><td class="col-brand">Parfums de Marly</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Sauvage / Sauvage Elixir / Dior Homme</td><td class="col-brand">Christian Dior</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Invictus (Victory, Elixir, Legend)</td><td class="col-brand">Paco Rabanne</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">One Million (Elixir, Lucky, Royal)</td><td class="col-brand">Paco Rabanne</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Phantom / Phantom Parfum / XS</td><td class="col-brand">Paco Rabanne</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Bad Boy (Cobalt, Extreme, Le Parfum)</td><td class="col-brand">Carolina Herrera</td><td class="col-price">$22.000</td></tr>
+                </tbody>
+            </table>
+
+            <!-- Columna Masculina 2 -->
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Fragancia</th>
+                        <th>Marca / Casa</th>
+                        <th class="col-price">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">212 VIP Men (Black, Extra, Heroes)</td><td class="col-brand">Carolina Herrera</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Le Male (Elixir, Le Parfum, Paradise)</td><td class="col-brand">Jean Paul Gaultier</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Le Beau / Le Beau Le Parfum</td><td class="col-brand">Jean Paul Gaultier</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Scandal Pour Homme / Absolu</td><td class="col-brand">Jean Paul Gaultier</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Acqua Di Giò (Profondo, Profumo)</td><td class="col-brand">Giorgio Armani</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Stronger With You (Intensely)</td><td class="col-brand">Giorgio Armani</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Armani Code (Absolu, Profumo)</td><td class="col-brand">Giorgio Armani</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">MYSLF / MYSLF L'Absolu / Y EDP</td><td class="col-brand">Yves Saint Laurent</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Eros / Eros Flame / Eros Energy</td><td class="col-brand">Versace</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Creed Aventus / Royal Oud</td><td class="col-brand">Creed</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Ombré Leather / Tobacco Vanille</td><td class="col-brand">Tom Ford</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Imagination / Nouveau Monde</td><td class="col-brand">Louis Vuitton</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Gentleman (Reserve Privée, Society)</td><td class="col-brand">Givenchy</td><td class="col-price">$22.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Bleu de Chanel / Allure Homme</td><td class="col-brand">Chanel</td><td class="col-price">$22.000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 3: UNISEX, NICHO & CÁPSULA FUSIÓN -->
+        <!-- ========================================== -->
+        <div class="section-title" style="margin-top:25px;">3. UNISEX, NICHO DE LUJO & CÁPSULA FUSIÓN</div>
+        
+        <div class="two-cols">
+            <!-- Columna Nicho -->
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Fragancia Unisex & Nicho</th>
+                        <th>Casa</th>
+                        <th class="col-price">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Baccarat Rouge 540</td><td class="col-brand">M. Francis Kurkdjian</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Erba Pura / Accento / Naxos</td><td class="col-brand">Xerjoff</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Bianco Latte</td><td class="col-brand">Giardini Di Toscana</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Santal 33 / Gaiac 10</td><td class="col-brand">Le Labo</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Arabians Tonka / Intense Café</td><td class="col-brand">Montale</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Lost Cherry / Mandarino Di Amalfi</td><td class="col-brand">Tom Ford</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Yum Pistachio Gelato</td><td class="col-brand">Kayali</td><td class="col-price">$24.000</td></tr>
+                </tbody>
+            </table>
+
+            <!-- Columna Cápsula Fusión -->
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Cápsula Fusión Exclusiva</th>
+                        <th>Línea</th>
+                        <th class="col-price">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fusión N°1: Midnight Crown</td><td class="col-brand">Masculino</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fusión N°2: Rosé Infinity</td><td class="col-brand">Femenino</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fusión N°3: Forbidden Nights</td><td class="col-brand">Masculino</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fusión N°4: Sky Kiss</td><td class="col-brand">Femenino</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fusión N°5: Imperium</td><td class="col-brand">Masculino</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">Fusión N°6: Velour Rouge</td><td class="col-brand">Femenino</td><td class="col-price">$24.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">CK One / CK Be</td><td class="col-brand">Calvin Klein</td><td class="col-price">$22.000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 4: LÍNEA AUTOMOTOR & TEXTIL (13 AROMAS) -->
+        <!-- ========================================== -->
+        <div class="section-title" style="margin-top:25px;">4. LÍNEA AUTOMOTOR & AROMAS TEXTILES (13 AROMAS)</div>
+        
+        <div class="two-cols">
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Aroma Automotor / Textil</th>
+                        <th>Notas</th>
+                        <th class="col-price">Combo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">01. Frutos Rojos</td><td class="col-brand">Frambuesa y moras dulces</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">02. Uva Madura</td><td class="col-brand">Intenso y dulce</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">03. Cherry (Cereza)</td><td class="col-brand">Dulce y seductor</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">04. Grosellas & Nectarina</td><td class="col-brand">Frutal refinado</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">05. Chicle (Bubblegum)</td><td class="col-brand">Dulce y alegre</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">06. Coco & Vainilla</td><td class="col-brand">Cálido y cremoso</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">07. Limón Natural</td><td class="col-brand">Fresco y energizante</td><td class="col-price">$11.000</td></tr>
+                </tbody>
+            </table>
+
+            <table class="perfume-table">
+                <thead>
+                    <tr>
+                        <th class="col-check">[✓]</th>
+                        <th>Aroma Automotor / Textil</th>
+                        <th>Notas</th>
+                        <th class="col-price">Combo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">08. Sandía Pepino</td><td class="col-brand">Acuático y limpio</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">09. Naranja Pimienta</td><td class="col-brand">Cítrico chispeante</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">10. Naranja Canela</td><td class="col-brand">Cálido y especiado</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">11. Jazmín Real</td><td class="col-brand">Floral blanco puro</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">12. Erba Pura (Inspiración)</td><td class="col-brand">Lujo frutal mediterráneo</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">13. La Vie Est Belle (Inspiración)</td><td class="col-brand">Praliné y elegancia floral</td><td class="col-price">$11.000</td></tr>
+                    <tr><td class="col-check"><span class="check-box-print"></span></td><td class="col-name">🚗 Promo 2 Combos x $20.000</td><td class="col-brand">A elección</td><td class="col-price"><strong>$20.000</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer-print">
+            <span><strong>BJ BEAUTY</strong> • Fragancias & Cosmética Aromática</span>
+            <span>Total Pedido: $ ______________ | Seña: $ ______________ | Saldo: $ ______________</span>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>BJ BEAUTY - Unisex, Nicho & Automotor</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+@page {
+    size: 860px 1216px;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+.page {
+    width: 860px;
+    height: 1216px;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 36px 32px 32px 32px;
+    overflow: hidden;
+}
+.title-container {
+    text-align: center;
+    margin-bottom: 12px;
+}
+.sub-script {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: #ffd1dc;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+    margin-bottom: -6px;
+}
+.sub-script-masc {
+    color: #cce4ff;
+    text-shadow: 0 0 10px rgba(65, 105, 225, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+}
+.sub-script-gold {
+    color: #ffe6a3;
+    text-shadow: 0 0 10px rgba(223, 177, 91, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+}
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 2px 3px 8px rgba(0,0,0,0.95);
+}
+.price-badge-pill {
+    display: inline-block;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid #dfb15b;
+    color: #ffe8b2;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* ESTRUCTURA A 2 COLUMNAS POR PÁGINA */
+.fragrance-list-card-2col {
+    width: 100%;
+    flex: 1;
+    background: rgba(10, 8, 18, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(223, 177, 91, 0.4);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.8);
+    margin-bottom: 8px;
+}
+.col-divider {
+    background: linear-gradient(180deg, transparent, rgba(223, 177, 91, 0.5) 20%, rgba(223, 177, 91, 0.5) 80%, transparent);
+    width: 1px;
+    height: 100%;
+}
+.col-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.item-row:last-child {
+    border-bottom: none;
+}
+.item-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 235px;
+}
+.item-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    color: #dfb15b;
+    text-align: right;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+.page-footer-num {
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+.header-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+.header-brand-logo img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid #dfb15b;
+    box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+}
+.header-brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #dfb15b;
+    letter-spacing: 3px;
+}
+</style>
+</head>
+<body>
+
+<div class="page" style="background-image: linear-gradient(180deg, rgba(8,6,14,0.3) 0%, rgba(8,6,14,0.85) 65%, #050408 100%), url('banner_capsula_fusion.jpg'); justify-content: center; align-items: center; text-align: center;">
+    <div style="margin-top: 170px;">
+        <img src="logo_bj_beauty.png" style="width: 215px; height: 215px; border-radius: 50%; box-shadow: 0 0 50px rgba(223, 177, 91, 0.6), 0 0 25px rgba(192, 132, 252, 0.5); border: 2px solid #dfb15b; margin-bottom: 25px;">
+        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 34px; color: #ffe6a3; margin-bottom: 4px;">Ediciones de Autor</div>
+        <div style="font-family: 'Cinzel', serif; font-size: 42px; font-weight: 900; letter-spacing: 4px; color: #ffffff; text-shadow: 0 0 25px rgba(255,255,255,0.7);">UNISEX, NICHO & AUTOMÓVIL</div>
+        <div style="font-size: 15px; letter-spacing: 4px; color: #dfb15b; text-transform: uppercase; font-weight: 600; margin-top: 6px;">Cápsula Fusión • Alta Gama Nicho • Aromas Textiles y Auto</div>
+        
+        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 35px;">
+            <span style="background: rgba(15, 10, 25, 0.88); border: 1.5px solid #dfb15b; color: #ffe6a3; padding: 10px 22px; border-radius: 25px; font-weight: 700; font-size: 15px;">💎 Fusión & Nicho: $24.000</span>
+            <span style="background: rgba(15, 10, 25, 0.88); border: 1.5px solid #c084fc; color: #e9d5ff; padding: 10px 22px; border-radius: 25px; font-weight: 700; font-size: 15px;">🚗 Combo Auto: $11.000 (Promo: 2 COMBOS x $20.000)</span>
+        </div>
+    </div>
+</div>
+
+<div class="page" style="background-image: linear-gradient(rgba(10,12,18,0.55), rgba(10,12,18,0.8)), url('banner_capsula_fusion.jpg'); justify-content: space-between;">
+    <div class="title-container" style="margin-top: 10px;">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script sub-script-gold">Edición Exclusiva</div>
+        <div class="main-title">CÁPSULA FUSIÓN</div>
+        <div class="price-badge-pill">PRECIO: $24.000 C/U • DOS ESENCIAS, UN NUEVO LEGADO</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Fusion N1: Midnight Crown">Fusion N1: Midnight Crown</span><span class="item-brand">Capsula Fusion (Masc)</span></div><div class="item-row"><span class="item-name" title="Fusion N2: Rose Infinity">Fusion N2: Rose Infinity</span><span class="item-brand">Capsula Fusion (Fem)</span></div><div class="item-row"><span class="item-name" title="Fusion N3: Forbidden Nights">Fusion N3: Forbidden Nights</span><span class="item-brand">Capsula Fusion (Masc)</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Fusion N4: Sky Kiss">Fusion N4: Sky Kiss</span><span class="item-brand">Capsula Fusion (Fem)</span></div><div class="item-row"><span class="item-name" title="Fusion N5: Imperium">Fusion N5: Imperium</span><span class="item-brand">Capsula Fusion (Masc)</span></div><div class="item-row"><span class="item-name" title="Fusion N6: Velour Rouge">Fusion N6: Velour Rouge</span><span class="item-brand">Capsula Fusion (Fem)</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Líneas Especiales</div>
+</div>
+
+<div class="page" style="background-image: url('fondo_unisex_atardecer.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script sub-script-gold">Línea Exclusiva</div>
+        <div class="main-title">UNISEX & NICHO</div>
+        <div class="price-badge-pill">60 ML • $22.000 / $24.000 • NOTAS DE AUTOR</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Accento">Accento</span><span class="item-brand">Xerjoff</span></div><div class="item-row"><span class="item-name" title="All">All</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Amber Gold">Amber Gold</span><span class="item-brand">Xerjoff</span></div><div class="item-row"><span class="item-name" title="Arabians Tonka">Arabians Tonka</span><span class="item-brand">Montale</span></div><div class="item-row"><span class="item-name" title="Baccarat Rouge 540">Baccarat Rouge 540</span><span class="item-brand">Maison Francis Kurkdjian</span></div><div class="item-row"><span class="item-name" title="Be">Be</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Bianco Latte">Bianco Latte</span><span class="item-brand">Giardini Di Toscana</span></div><div class="item-row"><span class="item-name" title="Boise Fruite">Boise Fruite</span><span class="item-brand">Montale</span></div><div class="item-row"><span class="item-name" title="Erba Pura">Erba Pura</span><span class="item-brand">Xerjoff</span></div><div class="item-row"><span class="item-name" title="Everyone">Everyone</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Fleur Du Desert">Fleur Du Desert</span><span class="item-brand">Louis Vuitton</span></div><div class="item-row"><span class="item-name" title="Gaiac 10 Tokyo">Gaiac 10 Tokyo</span><span class="item-brand">Le Labo</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Halfeti">Halfeti</span><span class="item-brand">Penhaligons</span></div><div class="item-row"><span class="item-name" title="Intense Cafe">Intense Cafe</span><span class="item-brand">Montale</span></div><div class="item-row"><span class="item-name" title="Lost Cherry">Lost Cherry</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Mandarino Di Amalfi">Mandarino Di Amalfi</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Neroli Portofino">Neroli Portofino</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="One">One</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Santal 33">Santal 33</span><span class="item-brand">Le Labo</span></div><div class="item-row"><span class="item-name" title="Tubereuse Astrale">Tubereuse Astrale</span><span class="item-brand">Maison Crivelli</span></div><div class="item-row"><span class="item-name" title="Vanille 44">Vanille 44</span><span class="item-brand">Le Labo</span></div><div class="item-row"><span class="item-name" title="La Capitale">La Capitale</span><span class="item-brand">Xerjoff</span></div><div class="item-row"><span class="item-name" title="Naxos">Naxos</span><span class="item-brand">Xerjoff</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Líneas Especiales</div>
+</div>
+
+<div class="page" style="padding: 0; justify-content: center; background: #000;">
+    <img src="linea_auto_bj_beauty.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+    <div class="page-footer-num">BJ BEAUTY • Línea Automotor</div>
+</div>
+
+<div class="page" style="background-image: linear-gradient(rgba(8,6,14,0.9), rgba(8,6,14,0.95)), url('fondo_unisex_atardecer.jpg'); justify-content: center;">
+    <div style="text-align: center; max-width: 680px; background: rgba(18, 14, 28, 0.88); border: 1.5px solid #dfb15b; border-radius: 20px; padding: 45px 35px; box-shadow: 0 12px 45px rgba(0,0,0,0.85);">
+        <img src="logo_bj_beauty.png" style="width: 110px; height: 110px; border-radius: 50%; box-shadow: 0 0 25px rgba(223, 177, 91, 0.4); border: 1.5px solid #dfb15b; margin-bottom: 20px;">
+        <div style="font-family: 'Cinzel', serif; font-size: 32px; color: #dfb15b; margin-bottom: 12px; font-weight: 800;">¿CÓMO REALIZAR TU PEDIDO?</div>
+        <p style="color: #e2e8f0; font-size: 16px; margin-bottom: 25px; line-height: 1.6;">Elegí tus fragancias o combos de auto favoritos y contactanos por WhatsApp.</p>
+        
+        <div style="background: rgba(0,0,0,0.55); border: 1px solid rgba(223, 177, 91, 0.35); border-radius: 12px; padding: 20px; margin-bottom: 25px; text-align: left;">
+            <div style="font-size: 15px; color: #ffd1dc; margin-bottom: 8px;">💳 <b>Medios de Pago:</b></div>
+            <div style="color: #cbd5e1; font-size: 14px; margin-bottom: 14px;">• Efectivo / Transferencias (Mercado Pago, Cuenta DNI, Bancarias)</div>
+            <div style="font-size: 15px; color: #ffe6a3; margin-bottom: 8px;">📦 <b>Entregas:</b></div>
+            <div style="color: #cbd5e1; font-size: 14px;">• Puntos de encuentro y envíos a domicilio coordinados.</div>
+        </div>
+
+        <div style="font-family: 'Cinzel', serif; font-size: 22px; color: #fff; margin-bottom: 6px;">BJ BEAUTY • AROMAS & EXCLUSIVIDAD</div>
+        <div style="color: #dfb15b; font-size: 14px; letter-spacing: 2px;">CÁPSULA FUSIÓN • NICHO • AUTOMOTOR</div>
+    </div>
+</div>
+</body></html>

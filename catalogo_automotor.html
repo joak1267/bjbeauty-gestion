@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJ BEAUTY - Línea Automotor & Textil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #07050b;
+            --card-bg: #120d1e;
+            --lila-light: #e9d5ff;
+            --lila-primary: #c084fc;
+            --lila-deep: #581c87;
+            --gold-light: #fef08a;
+            --gold-metal: #dfb15b;
+            --gold-dark: #a16207;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-gold: rgba(223, 177, 91, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(192, 132, 252, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(223, 177, 91, 0.12) 0%, transparent 45%);
+        }
+
+        .top-bar {
+            background: linear-gradient(90deg, #1c1130, #0d0717);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar a {
+            color: var(--lila-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, var(--gold-metal), var(--lila-primary));
+            color: #08060c;
+            font-weight: 700;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.82rem;
+            transition: all 0.2s;
+        }
+
+        .btn-print:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(223, 177, 91, 0.6);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* HEADER DE MARCA */
+        .catalog-header {
+            text-align: center;
+            padding: 20px 10px 35px;
+            border-bottom: 2px solid var(--border-gold);
+            margin-bottom: 35px;
+        }
+
+        .header-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #150e24;
+            border: 2px solid var(--gold-metal);
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+        }
+
+        .header-logo span.b {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--gold-metal);
+        }
+        .header-logo span.j {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--lila-primary);
+            margin-left: -4px;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-metal) 60%, var(--lila-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            letter-spacing: 3px;
+            color: var(--lila-primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .header-desc {
+            max-width: 650px;
+            margin: 15px auto 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* BANNER DE COMBOS Y PRECIOS */
+        .pricing-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 45px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .price-card.combo-special {
+            border: 2px solid var(--gold-metal);
+            background: linear-gradient(135deg, rgba(35, 18, 55, 0.9), rgba(15, 10, 25, 0.95));
+            box-shadow: 0 0 30px rgba(192, 132, 252, 0.25);
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background: var(--lila-deep);
+            border: 1px solid var(--lila-primary);
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .price-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .price-num {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .promo-highlight {
+            color: var(--gold-metal);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .product-specs {
+            text-align: left;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* CATEGORÍAS OLFATIVAS */
+        .family-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--gold-metal);
+            border-bottom: 1px solid rgba(223, 177, 91, 0.3);
+            padding-bottom: 8px;
+            margin: 35px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .aromas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .aroma-card {
+            background: rgba(25, 18, 38, 0.7);
+            border: 1px solid rgba(192, 132, 252, 0.25);
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.25s;
+            position: relative;
+        }
+
+        .aroma-card:hover {
+            border-color: var(--gold-metal);
+            background: rgba(40, 25, 65, 0.85);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .aroma-number {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold-metal);
+            background: rgba(223, 177, 91, 0.12);
+            padding: 2px 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(223, 177, 91, 0.3);
+        }
+
+        .aroma-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+        }
+
+        .aroma-desc {
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .aroma-note {
+            font-size: 0.76rem;
+            color: var(--lila-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* MODO DE USO */
+        .usage-box {
+            background: linear-gradient(135deg, rgba(88, 28, 135, 0.35), rgba(15, 10, 25, 0.8));
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 45px;
+        }
+
+        .usage-box h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .usage-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .step-card {
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 3px solid var(--gold-metal);
+        }
+
+        .step-card strong {
+            color: var(--gold-metal);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .step-card p {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        @media print {
+            body {
+                background: #000 !important;
+                color: #fff !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .top-bar {
+                display: none !important;
+            }
+            .aroma-card {
+                background: #110d1a !important;
+                border: 1px solid #44355b !important;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="index.html">← Volver al Menú Principal</a>
+        <button class="btn-print" onclick="window.print()">📥 Imprimir / Guardar Catálogo PDF</button>
+    </div>
+
+    <div class="container">
+        <!-- HEADER BJ BEAUTY -->
+        <div class="catalog-header">
+            <div class="header-logo">
+                <span class="b">B</span><span class="j">J</span>
+            </div>
+            <h1 class="brand-title">BJ BEAUTY</h1>
+            <div class="subtitle">Línea Automotor & Aromatizantes Textiles</div>
+            <p class="header-desc">
+                Fragancias concentradas de larga persistencia diseñadas para brindar una experiencia olfativa única en tu auto, hogar y prendas. Elaboradas con aceites de perfumería pura que no manchan.
+            </p>
+        </div>
+
+        <!-- PRECIOS Y COMBOS -->
+        <div class="pricing-section">
+            
+            <div class="price-card combo-special">
+                <span class="badge-tag">🔥 El Más Elegido</span>
+                <h3>Combo Auto + Textil</h3>
+                <div class="price-num">$11.000</div>
+                <div class="promo-highlight">🚗 ¡Llevá 2 combos por $20.000!</div>
+                <div class="product-specs">
+                    ✔ <strong>1x Difusor Auto 8ml:</strong> Tapa de madera difusora para espejo retrovisor.<br>
+                    ✔ <strong>1x Spray Textil 30ml:</strong> Gatillo pulverizador fino para butacas, alfombras y baúl.<br>
+                    ✔ Podés combinar los 2 aromas que más te gusten.
+                </div>
+            </div>
+
+            <div class="price-card">
+                <span class="badge-tag">Vehículo</span>
+                <h3>Difusor Colgante 8ml</h3>
+                <div class="price-num">$5.500</div>
+                <div class="promo-highlight">Aroma constante por más de 30 días</div>
+                <div class="product-specs">
+                    ✔ Frasco de vidrio con cordón regulable reforzado.<br>
+                    ✔ Madera de haya natural que absorbe y difunde de manera gradual.<br>
+                    ✔ No gotea ni daña el torpedo del auto.
+                </div>
+            </div>
+
+            <div class="price-card">
+                <span class="badge-tag">Textil & Hogar</span>
+                <h3>Spray Textil 30ml</h3>
+                <div class="price-num">$6.500</div>
+                <div class="promo-highlight">Ideal tapizados, alfombras y cortinas</div>
+                <div class="product-specs">
+                    ✔ Alta concentración con fijador especial textil.<br>
+                    ✔ 100% libre de manchas en telas claras, cuero o pana.<br>
+                    ✔ Elimina olores a encierro y humedad al instante.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 13 AROMAS DISPONIBLES SEPARADOS POR FAMILIAS -->
+
+        <!-- 1. FRUTALES & DULCES -->
+        <h2 class="family-title">🍓 Frutales & Dulces Envolventes</h2>
+        <div class="aromas-grid">
+            <div class="aroma-card">
+                <span class="aroma-number">#01</span>
+                <div class="aroma-name">Frutos Rojos</div>
+                <div class="aroma-desc">Explosión dulce e intensa de frambuesas, moras silvestres y frutillas confitadas. Aroma vibrante que llena el habitáculo.</div>
+                <div class="aroma-note">Familia: Frutal Intenso / Dulce</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#02</span>
+                <div class="aroma-name">Uva</div>
+                <div class="aroma-desc">Dulzor penetrante y jugoso de racimos de uva madura. Muy persistente y con personalidad inconfundible.</div>
+                <div class="aroma-note">Familia: Frutal Dulce / Jugoso</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#03</span>
+                <div class="aroma-name">Cherry</div>
+                <div class="aroma-desc">Cerezas negras maduras con un fondo licorado y seductor. Un clásico preferido por los amantes de fragancias intensas.</div>
+                <div class="aroma-note">Familia: Frutal Gourmand</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#04</span>
+                <div class="aroma-name">Grosellas & Nectarina</div>
+                <div class="aroma-desc">Equilibrio perfecto entre la acidez chispeante de la grosella negra y la pulpa aterciopelada del durazno y la nectarina.</div>
+                <div class="aroma-note">Familia: Frutal Sofisticado</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#05</span>
+                <div class="aroma-name">Chicle (Bubblegum)</div>
+                <div class="aroma-desc">Divertido, juvenil y nostálgico. Un aroma dulce y alegre que transforma cualquier viaje en un momento agradable.</div>
+                <div class="aroma-note">Familia: Gourmand Dulce</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#06</span>
+                <div class="aroma-name">Coco & Vainilla</div>
+                <div class="aroma-desc">Cálido y cremoso. Notas de coco tostado con un abrazo aterciopelado de vainilla de Madagascar. Sensación reconfortante.</div>
+                <div class="aroma-note">Familia: Tropical / Cálido</div>
+            </div>
+        </div>
+
+        <!-- 2. CÍTRICOS & FRESCOS -->
+        <h2 class="family-title">🍋 Cítricos & Refrescantes</h2>
+        <div class="aromas-grid">
+            <div class="aroma-card">
+                <span class="aroma-number">#07</span>
+                <div class="aroma-name">Limón Natural</div>
+                <div class="aroma-desc">Cáscara de limón recién cortada. Sensación inmediata de limpieza absoluta, frescura y energía desodorizante.</div>
+                <div class="aroma-note">Familia: Cítrico Puro / Estimulante</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#08</span>
+                <div class="aroma-name">Sandía Pepino</div>
+                <div class="aroma-desc">Frescura acuática inigualable. El frescor del pepino verde fusionado con la dulzura liviana de la sandía helada.</div>
+                <div class="aroma-note">Familia: Acuático / Refrescante</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#09</span>
+                <div class="aroma-name">Naranja Pimienta</div>
+                <div class="aroma-desc">Cítrico audaz y moderno. La jugosidad de la naranja dulce combinada con notas picantes de pimienta rosa.</div>
+                <div class="aroma-note">Familia: Cítrico Especiado</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#10</span>
+                <div class="aroma-name">Naranja Canela</div>
+                <div class="aroma-desc">Aroma cálido y acogedor. Cítrico dulce envuelto en corteza de canela aromática, perfecto para un ambiente relajado.</div>
+                <div class="aroma-note">Familia: Cítrico Cálido</div>
+            </div>
+        </div>
+
+        <!-- 3. FLORALES Y ALTA PERFUMERÍA -->
+        <h2 class="family-title">👑 Florales & Inspiraciones de Alta Perfumería</h2>
+        <div class="aromas-grid">
+            <div class="aroma-card">
+                <span class="aroma-number">#11</span>
+                <div class="aroma-name">Jazmín Real</div>
+                <div class="aroma-desc">Bouquet de flores blancas de jazmín. Elegante, sereno y distinguido, brinda armonía y sensación de lujo.</div>
+                <div class="aroma-note">Familia: Floral Noble</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#12</span>
+                <div class="aroma-name">Erba Pura (Inspiración Nicho)</div>
+                <div class="aroma-desc">Inspirado en la joya de Xerjoff. Frutas del mediterráneo envueltas en almizcle blanco y ámbar sensual. Lujo absoluto.</div>
+                <div class="aroma-note">Familia: Frutal Ámbar Nicho</div>
+            </div>
+
+            <div class="aroma-card">
+                <span class="aroma-number">#13</span>
+                <div class="aroma-name">La Vie Est Belle (Inspiración)</div>
+                <div class="aroma-desc">Inspirado en el clásico de Lancôme. Notas de flor de iris, praliné gourmet y pachulí fino. Máxima sofisticación.</div>
+                <div class="aroma-note">Familia: Floral Frutal Gourmand</div>
+            </div>
+        </div>
+
+        <!-- GUÍA DE USO Y CONSEJOS -->
+        <div class="usage-box">
+            <h3>🚗 Consejos de Uso para Máximo Rendimiento</h3>
+            <div class="usage-steps">
+                <div class="step-card">
+                    <strong>1. Difusor Colgante de Auto</strong>
+                    <p>Desenroscar la tapa de madera, retirar el tapón plástico de seguridad, volver a enroscar la madera e invertir el frasco 3 segundos para humedecerla. Repetir cada 5 días.</p>
+                </div>
+                <div class="step-card">
+                    <strong>2. Spray Textil Concentrado</strong>
+                    <p>Rociar a unos 25cm de distancia sobre alfombras, techo o tapizados de tela del vehículo. También ideal para sofás, sábanas o cortinas en el hogar.</p>
+                </div>
+                <div class="step-card">
+                    <strong>3. Combinación Perfecta</strong>
+                    <p>Utilizar el difusor para mantener un aroma continuo y el spray textil para un golpe de perfume instantáneo al subir al auto.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

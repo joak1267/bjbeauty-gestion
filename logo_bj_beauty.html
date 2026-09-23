@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJ BEAUTY - Identidad Visual y Logotipo Oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #09070f;
+            --card-bg: #130f20;
+            --card-border: #2c2045;
+            --lila-light: #e9d5ff;
+            --lila-primary: #c084fc;
+            --lila-deep: #7e22ce;
+            --lila-glow: rgba(192, 132, 252, 0.35);
+            --gold-light: #fef08a;
+            --gold-primary: #eab308;
+            --gold-metal: #dfb15b;
+            --gold-dark: #a16207;
+            --text-main: #f8fafc;
+            --text-muted: #a8a29e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding: 30px 20px 60px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(126, 34, 206, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(223, 177, 91, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(19, 15, 32, 0.9) 0%, #09070f 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 25px;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: var(--lila-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .nav-back:hover {
+            color: var(--gold-light);
+            transform: translateX(-4px);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.6rem;
+            letter-spacing: 5px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-metal) 50%, var(--lila-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header-sub {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .palette-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px auto 10px;
+            flex-wrap: wrap;
+        }
+
+        .palette-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+        }
+
+        .palette-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* LOGO DISPLAY GRID */
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .logo-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .logo-card:hover {
+            border-color: var(--lila-primary);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .logo-badge {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-metal);
+            background: rgba(223, 177, 91, 0.12);
+            border: 1px solid var(--gold-metal);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .svg-container {
+            width: 100%;
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #dfb15b, #b388ff);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-download:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
+        }
+
+        .guide-box {
+            background: linear-gradient(135deg, rgba(126, 34, 206, 0.15), rgba(223, 177, 91, 0.1));
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .guide-box h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .guide-list li {
+            background: rgba(0,0,0,0.4);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid var(--lila-primary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .guide-list strong {
+            color: var(--gold-metal);
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="nav-back">← Volver al Menú Principal</a>
+            <h1>BJ BEAUTY</h1>
+            <div class="header-sub">Identidad de Marca • Alta Perfumería & Aromas</div>
+            
+            <div class="palette-bar">
+                <div class="palette-chip">
+                    <span class="palette-color" style="background:#c084fc; box-shadow: 0 0 10px #c084fc;"></span>
+                    <span><strong>Lila Luminoso:</strong> #C084FC</span>
+                </div>
+                <div class="palette-chip">
+                    <span class="palette-color" style="background:#581c87;"></span>
+                    <span><strong>Lila Imperial:</strong> #581C87</span>
+                </div>
+                <div class="palette-chip">
+                    <span class="palette-color" style="background:#09070f; border-color:#fff;"></span>
+                    <span><strong>Negro Onyx:</strong> #09070F</span>
+                </div>
+                <div class="palette-chip">
+                    <span class="palette-color" style="background:#dfb15b; box-shadow: 0 0 10px #dfb15b;"></span>
+                    <span><strong>Oro Puro:</strong> #DFB15B</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- GRILLA DE LOGOTIPOS VECTORIALES -->
+        <div class="logos-grid">
+            
+            <!-- LOGO 1: EMBLEMA CIRCULAR (IDEAL STICKERS / TAPA DE PERFUMES / FOTO DE PERFIL) -->
+            <div class="logo-card">
+                <div class="logo-badge">Variante 1 • Emblema Circular de Lujo</div>
+                
+                <div class="svg-container">
+                    <svg id="svg-logo-1" width="280" height="280" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Gradientes de Oro -->
+                            <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fff4b8"/>
+                                <stop offset="35%" stop-color="#dfb15b"/>
+                                <stop offset="70%" stop-color="#9d7426"/>
+                                <stop offset="100%" stop-color="#fdf1a9"/>
+                            </linearGradient>
+                            
+                            <!-- Gradiente Lila -->
+                            <linearGradient id="lilaGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#c084fc"/>
+                                <stop offset="50%" stop-color="#a855f7"/>
+                                <stop offset="100%" stop-color="#6b21a8"/>
+                            </linearGradient>
+
+                            <!-- Glow Filtro -->
+                            <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+
+                        <!-- Fondo circular oscuro -->
+                        <circle cx="150" cy="150" r="140" fill="#0c0914" stroke="url(#goldGrad1)" stroke-width="3"/>
+                        <circle cx="150" cy="150" r="132" fill="none" stroke="url(#lilaGrad1)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+                        <!-- Anillo de destello lila sutil -->
+                        <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(192, 132, 252, 0.25)" stroke-width="1"/>
+
+                        <!-- Corona / Diamante superior de perfumería -->
+                        <g transform="translate(150, 48) scale(0.7)">
+                            <path d="M-15 0 L0 -15 L15 0 L0 15 Z" fill="url(#goldGrad1)" />
+                            <circle cx="0" cy="0" r="3" fill="#fff" />
+                        </g>
+
+                        <!-- Monograma BJ Central -->
+                        <!-- Letra B -->
+                        <text x="125" y="152" font-family="'Playfair Display', serif" font-weight="700" font-size="82" fill="url(#goldGrad1)" text-anchor="middle" filter="url(#goldGlow)">B</text>
+                        <!-- Letra J entrelazada con toque lila-oro -->
+                        <text x="175" y="162" font-family="'Playfair Display', serif" font-weight="700" font-size="88" fill="url(#lilaGrad1)" text-anchor="middle">J</text>
+
+                        <!-- Nombre de la marca curvado o recto -->
+                        <text x="150" y="208" font-family="'Cinzel', serif" font-weight="700" font-size="22" letter-spacing="6" fill="url(#goldGrad1)" text-anchor="middle">BEAUTY</text>
+                        
+                        <!-- Subtexto -->
+                        <text x="150" y="228" font-family="'Montserrat', sans-serif" font-weight="400" font-size="8.5" letter-spacing="3" fill="#e9d5ff" text-anchor="middle">ALTA PERFUMERÍA</text>
+
+                        <!-- Destellos decorativos -->
+                        <circle cx="95" cy="204" r="1.5" fill="url(#goldGrad1)" />
+                        <circle cx="205" cy="204" r="1.5" fill="url(#goldGrad1)" />
+                        <path d="M150 242 L153 245 L150 248 L147 245 Z" fill="url(#goldGrad1)" />
+                    </svg>
+                </div>
+
+                <p style="font-size:0.85rem; color:#aaa;">Perfecto para sticker de packaging, perfiles de WhatsApp/Instagram y tapas de frascos.</p>
+                <button class="btn-download" onclick="downloadSVG('svg-logo-1', 'BJ_BEAUTY_Logo_Circular')">⬇ Descargar Imagen (PNG HD)</button>
+            </div>
+
+            <!-- LOGO 2: FORMATO RECTANGULAR HORIZONTAL (IDEAL ETIQUETAS, FLYERS Y ENCABEZADOS) -->
+            <div class="logo-card">
+                <div class="logo-badge">Variante 2 • Isologotipo Horizontal Premium</div>
+                
+                <div class="svg-container">
+                    <svg id="svg-logo-2" width="340" height="240" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fff6c9"/>
+                                <stop offset="40%" stop-color="#dfb15b"/>
+                                <stop offset="100%" stop-color="#9a6f20"/>
+                            </linearGradient>
+                            <linearGradient id="lilaGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#c084fc"/>
+                                <stop offset="100%" stop-color="#7e22ce"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Fondo sutil tipo etiqueta -->
+                        <rect x="10" y="10" width="400" height="200" rx="14" fill="#0a0712" stroke="url(#goldGrad2)" stroke-width="1.8"/>
+                        <rect x="16" y="16" width="388" height="188" rx="10" fill="none" stroke="rgba(192, 132, 252, 0.4)" stroke-width="1"/>
+
+                        <!-- Monograma izquierdo con marco de rombo -->
+                        <g transform="translate(68, 110)">
+                            <!-- Rombo girado con degradé lila -->
+                            <rect x="-42" y="-42" width="84" height="84" rx="12" transform="rotate(45)" fill="#140f24" stroke="url(#goldGrad2)" stroke-width="2"/>
+                            <!-- B en oro -->
+                            <text x="-9" y="13" font-family="'Playfair Display', serif" font-weight="700" font-size="44" fill="url(#goldGrad2)" text-anchor="middle">B</text>
+                            <!-- J en lila -->
+                            <text x="14" y="17" font-family="'Playfair Display', serif" font-weight="700" font-size="46" fill="url(#lilaGrad2)" text-anchor="middle">J</text>
+                        </g>
+
+                        <!-- Bloque de texto derecho -->
+                        <g transform="translate(260, 92)">
+                            <text x="0" y="0" font-family="'Cinzel', serif" font-weight="800" font-size="34" letter-spacing="6" fill="url(#goldGrad2)" text-anchor="middle">BJ BEAUTY</text>
+                            <line x1="-105" y1="14" x2="105" y2="14" stroke="url(#lilaGrad2)" stroke-width="1.5"/>
+                            <text x="0" y="32" font-family="'Montserrat', sans-serif" font-weight="600" font-size="10.5" letter-spacing="4" fill="#e9d5ff" text-anchor="middle">ALTA PERFUMERÍA</text>
+                            <text x="0" y="48" font-family="'Montserrat', sans-serif" font-weight="300" font-size="9" letter-spacing="2.5" fill="#dfb15b" text-anchor="middle">& FRAGANCIAS EXCLUSIVAS</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p style="font-size:0.85rem; color:#aaa;">Diseñado para la etiqueta frontal de los frascos de 60ml, bolsas de regalo y encabezados.</p>
+                <button class="btn-download" onclick="downloadSVG('svg-logo-2', 'BJ_BEAUTY_Logo_Horizontal')">⬇ Descargar Imagen (PNG HD)</button>
+            </div>
+
+            <!-- LOGO 3: VARIANTE MINIMALISTA FLORAL / DIAMANTE -->
+            <div class="logo-card">
+                <div class="logo-badge">Variante 3 • Minimalista Elegante</div>
+                
+                <div class="svg-container">
+                    <svg id="svg-logo-3" width="280" height="280" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fff8d6"/>
+                                <stop offset="50%" stop-color="#dfb15b"/>
+                                <stop offset="100%" stop-color="#b2822a"/>
+                            </linearGradient>
+                            <linearGradient id="lilaGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#e9d5ff"/>
+                                <stop offset="100%" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+
+                        <circle cx="150" cy="150" r="135" fill="#08060d"/>
+                        
+                        <!-- Hojas de laurel estilizadas en oro -->
+                        <path d="M60 150 C60 90, 100 50, 150 50 C200 50, 240 90, 240 150 C240 210, 200 250, 150 250 C100 250, 60 210, 60 150" fill="none" stroke="rgba(223, 177, 91, 0.3)" stroke-width="1.5" stroke-dasharray="8 6"/>
+
+                        <!-- Corona de 3 puntas en oro -->
+                        <path d="M135 75 L150 60 L165 75 L175 66 L170 85 L130 85 L125 66 Z" fill="url(#goldGrad3)"/>
+                        
+                        <!-- Tipografía central -->
+                        <text x="150" y="145" font-family="'Cinzel', serif" font-weight="700" font-size="44" letter-spacing="4" fill="url(#goldGrad3)" text-anchor="middle">B J</text>
+                        <text x="150" y="180" font-family="'Montserrat', sans-serif" font-weight="600" font-size="21" letter-spacing="8" fill="url(#lilaGrad3)" text-anchor="middle">BEAUTY</text>
+                        
+                        <line x1="100" y1="195" x2="200" y2="195" stroke="url(#goldGrad3)" stroke-width="1.5"/>
+                        <text x="150" y="215" font-family="'Montserrat', sans-serif" font-weight="400" font-size="8" letter-spacing="3" fill="#ffffff" text-anchor="middle">FRAGANCIAS & AROMAS</text>
+                    </svg>
+                </div>
+
+                <p style="font-size:0.85rem; color:#aaa;">Versión de máxima sutileza, con halo de perlas y corona real para sellos de cera o papel tissue.</p>
+                <button class="btn-download" onclick="downloadSVG('svg-logo-3', 'BJ_BEAUTY_Logo_Minimal')">⬇ Descargar Imagen (PNG HD)</button>
+            </div>
+
+        </div>
+
+        <!-- GUÍA DE APLICACIÓN DE MARCA -->
+        <div class="guide-box">
+            <h2>✨ Especificaciones de Marca para "BJ BEAUTY"</h2>
+            <ul class="guide-list">
+                <li>
+                    <strong>🖤 Fondo Negro Profundo (#09070F)</strong>
+                    Aporta elegancia, misterio y resalta al máximo las fragancias premium y de alta gama.
+                </li>
+                <li>
+                    <strong>💜 Toques en Lila & Púrpura (#C084FC / #581C87)</strong>
+                    Evoca sensualidad, delicadeza, modernidad y la esencia de los aromas florales y dulces.
+                </li>
+                <li>
+                    <strong>✨ Tipografía y Detalles en Oro (#DFB15B)</strong>
+                    El dorado metálico representa la alta perfumería, durabilidad, calidad y exclusividad.
+                </li>
+                <li>
+                    <strong>📦 Aplicación en Etiquetas y Botellas</strong>
+                    Los archivos SVG pueden escalarse a cualquier tamaño sin perder nitidez ni pixelarse para imprimir etiquetas adhesivas.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SCRIPT PARA CONVERTIR SVG EN PNG HD PARA DESCARGAR -->
+    <script>
+        function downloadSVG(svgId, filename) {
+            const svgElement = document.getElementById(svgId);
+            const serializer = new XMLSerializer();
+            let source = serializer.serializeToString(svgElement);
+
+            if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+                source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+            }
+            if(!source.match(/^<svg[^>]+xmlns\:xlink="http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+                source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = svgElement.viewBox.baseVal.width * 3;
+            canvas.height = svgElement.viewBox.baseVal.height * 3;
+            const ctx = canvas.getContext('2d');
+
+            const img = new Image();
+            const svgBlob = new Blob([source], {type: 'image/svg+xml;charset=utf-8'});
+            const url = URL.createObjectURL(svgBlob);
+
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                URL.revokeObjectURL(url);
+
+                const a = document.createElement('a');
+                a.download = filename + '_HD.png';
+                a.href = canvas.toDataURL('image/png');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+
+            img.src = url;
+        }
+    </script>
+</body>
+</html>

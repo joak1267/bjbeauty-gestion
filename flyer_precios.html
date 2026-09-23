@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJ BEAUTY - Flyer Oficial de Precios y Promociones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #08060c;
+            --lila-glow: #c084fc;
+            --lila-dark: #581c87;
+            --gold-light: #fef08a;
+            --gold-main: #dfb15b;
+            --gold-dark: #a16207;
+            --card-glass: rgba(18, 14, 28, 0.88);
+            --card-border: rgba(223, 177, 91, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #040306;
+            color: #f8fafc;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* BARRA SUPERIOR DE ACCIONES (NO SALE AL IMPRIMIR) */
+        .action-bar {
+            width: 100%;
+            max-width: 650px;
+            background: rgba(30, 20, 50, 0.9);
+            border: 1px solid var(--lila-glow);
+            padding: 12px 20px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .action-bar a {
+            color: var(--gold-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .action-bar .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, var(--gold-main), var(--lila-glow));
+            color: #09070f;
+            font-weight: 700;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-action:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 15px rgba(223, 177, 91, 0.6);
+        }
+
+        /* ESTRUCTURA DEL FLYER */
+        .flyer-container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--bg-black);
+            border: 2px solid var(--gold-main);
+            border-radius: 20px;
+            padding: 35px 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(192, 132, 252, 0.15);
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(192, 132, 252, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 90% 90%, rgba(223, 177, 91, 0.2) 0%, transparent 45%),
+                linear-gradient(180deg, #090611 0%, #050308 100%);
+        }
+
+        /* MARCO INTERNO DORADO DECORATIVO */
+        .flyer-container::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            border: 1px solid rgba(223, 177, 91, 0.25);
+            border-radius: 14px;
+            pointer-events: none;
+        }
+
+        /* CABECERA Y LOGO */
+        .flyer-header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .brand-monogram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: #0f0a1d;
+            border: 2px solid var(--gold-main);
+            box-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
+            margin-bottom: 12px;
+        }
+
+        .brand-monogram span.b {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--gold-main);
+            line-height: 1;
+        }
+        .brand-monogram span.j {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--lila-glow);
+            line-height: 1;
+            margin-left: -5px;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            letter-spacing: 5px;
+            background: linear-gradient(135deg, var(--gold-light) 10%, var(--gold-main) 60%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .brand-tagline {
+            font-size: 0.82rem;
+            letter-spacing: 4px;
+            color: var(--lila-glow);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .flyer-badge-promo {
+            display: inline-block;
+            background: linear-gradient(90deg, #581c87, #7e22ce);
+            border: 1px solid var(--gold-main);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 18px;
+            border-radius: 20px;
+            margin-top: 14px;
+            box-shadow: 0 4px 15px rgba(126, 34, 206, 0.4);
+        }
+
+        /* SECCIONES DE PRECIOS */
+        .cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .flyer-card {
+            background: var(--card-glass);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .flyer-card.featured {
+            border: 1.5px solid var(--gold-main);
+            background: linear-gradient(135deg, rgba(30, 20, 50, 0.95), rgba(15, 10, 25, 0.95));
+            box-shadow: 0 8px 25px rgba(192, 132, 252, 0.18);
+        }
+
+        .card-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: var(--gold-light);
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        .card-info p {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            line-height: 1.3;
+        }
+
+        .card-price-block {
+            text-align: right;
+            min-width: 135px;
+        }
+
+        .price-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-promo-pill {
+            background: rgba(192, 132, 252, 0.2);
+            border: 1px solid var(--lila-glow);
+            color: var(--gold-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-top: 4px;
+            display: inline-block;
+        }
+
+        /* MINI BENEFICIOS */
+        .perks-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .perk-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 10px 5px;
+        }
+
+        .perk-icon {
+            font-size: 1.2rem;
+            color: var(--gold-main);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .perk-text {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* PIE EDITABLE DE CONTACTO */
+        .flyer-footer {
+            background: linear-gradient(135deg, rgba(88, 28, 135, 0.5), rgba(12, 9, 20, 0.8));
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #fff;
+            flex-wrap: wrap;
+        }
+
+        .contact-field {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(223, 177, 91, 0.6);
+            padding-bottom: 2px;
+            cursor: pointer;
+        }
+
+        .payment-methods {
+            margin-top: 10px;
+            font-size: 0.72rem;
+            color: #cbd5e1;
+            letter-spacing: 1px;
+        }
+
+        /* IMPRESIÓN Y CAPTURA */
+        @media print {
+            body {
+                background: #000 !important;
+                padding: 0 !important;
+            }
+            .action-bar {
+                display: none !important;
+            }
+            .flyer-container {
+                max-width: 100% !important;
+                border: 2px solid #dfb15b !important;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="action-bar">
+        <a href="index.html">← Menú Principal</a>
+        <div class="btn-group">
+            <button class="btn-action" onclick="window.print()">📥 Imprimir / Guardar PDF</button>
+        </div>
+    </div>
+
+    <!-- FLYER VISUAL -->
+    <div class="flyer-container" id="flyerToCapture">
+        
+        <!-- HEADER CON LOGO BJ BEAUTY -->
+        <div class="flyer-header">
+            <img src="logo_bj_beauty.png" style="width: 82px; height: 82px; border-radius: 50%; border: 2px solid #dfb15b; box-shadow: 0 0 25px rgba(192, 132, 252, 0.45); margin-bottom: 10px;">
+            <h1 class="brand-name">BJ BEAUTY</h1>
+            <div class="brand-tagline">Alta Perfumería • Fragancias & Aromas</div>
+            <div class="flyer-badge-promo">✨ Lista Oficial de Precios 2026 ✨</div>
+        </div>
+
+        <!-- LISTADO DE PRECIOS PRINCIPALES -->
+        <div class="cards-list">
+            
+            <!-- PERFUMES 60ML -->
+            <div class="flyer-card featured">
+                <div class="card-info">
+                    <h3>Perfumes 60ml</h3>
+                    <p>Fragancias Internacionales Masculinas y Femeninas.<br>Máxima concentración y persistencia 24hs.</p>
+                </div>
+                <div class="card-price-block">
+                    <div class="price-num">$22.000</div>
+                    <div class="card-promo-pill">🔥 2 x $40.000</div>
+                </div>
+            </div>
+
+            <!-- CÁPSULA FUSIÓN Y ÁRABES -->
+            <div class="flyer-card">
+                <div class="card-info">
+                    <h3>Cápsula Fusión & Árabes</h3>
+                    <p>Línea exclusiva importada & Tendencias Virales.<br>Yara, Asad, 9PM, Fakhar, Khamrah, Eclaire.</p>
+                </div>
+                <div class="card-price-block">
+                    <div class="price-num">$24.000</div>
+                    <div class="card-promo-pill">👑 Línea de Lujo</div>
+                </div>
+            </div>
+
+            <!-- COMBO AUTOMÓVIL + TEXTIL -->
+            <div class="flyer-card featured">
+                <div class="card-info">
+                    <h3>Combo Auto + Textil</h3>
+                    <p>Difusor colgante de madera 8ml + Spray Textil 30ml.<br>Presentación completa con los 13 aromas disponibles.</p>
+                </div>
+                <div class="card-price-block">
+                    <div class="price-num">$11.000</div>
+                    <div class="card-promo-pill">🚗 2 Combos x $20.000</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 3 DESTACADOS -->
+        <div class="perks-row">
+            <div class="perk-item">
+                <span class="perk-icon">💎</span>
+                <span class="perk-text">Esencias Importadas</span>
+            </div>
+            <div class="perk-item">
+                <span class="perk-icon">⏳</span>
+                <span class="perk-text">Larga Duración</span>
+            </div>
+            <div class="perk-item">
+                <span class="perk-icon">🎁</span>
+                <span class="perk-text">Presentación Premium</span>
+            </div>
+        </div>
+
+        <!-- PIE EDITABLE CON DATOS DE CONTACTO -->
+        <div class="flyer-footer">
+            <div class="footer-title">Hacé tu pedido o consulta por tu fragancia favorita</div>
+            <div class="contact-info">
+                <div class="contact-field" contenteditable="true" title="Clic para editar tu teléfono">
+                    📱 WhatsApp: <span>+54 9 11 ...</span>
+                </div>
+                <div class="contact-field" contenteditable="true" title="Clic para editar tu Instagram">
+                    📷 Instagram: <span>@bjbeauty.perfumes</span>
+                </div>
+            </div>
+            <div class="payment-methods">
+                💳 Efectivo • Transferencias bancarias / Mercado Pago • Cuotas
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

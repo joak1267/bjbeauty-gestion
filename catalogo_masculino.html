@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>BJ BEAUTY - Catálogo Masculino</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+@page {
+    size: 860px 1216px;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+.page {
+    width: 860px;
+    height: 1216px;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 36px 32px 32px 32px;
+    overflow: hidden;
+}
+.title-container {
+    text-align: center;
+    margin-bottom: 12px;
+}
+.sub-script {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: #ffd1dc;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+    margin-bottom: -6px;
+}
+.sub-script-masc {
+    color: #cce4ff;
+    text-shadow: 0 0 10px rgba(65, 105, 225, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+}
+.sub-script-gold {
+    color: #ffe6a3;
+    text-shadow: 0 0 10px rgba(223, 177, 91, 0.8), 2px 2px 5px rgba(0,0,0,0.9);
+}
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 2px 3px 8px rgba(0,0,0,0.95);
+}
+.price-badge-pill {
+    display: inline-block;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid #dfb15b;
+    color: #ffe8b2;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* ESTRUCTURA A 2 COLUMNAS POR PÁGINA */
+.fragrance-list-card-2col {
+    width: 100%;
+    flex: 1;
+    background: rgba(10, 8, 18, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(223, 177, 91, 0.4);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.8);
+    margin-bottom: 8px;
+}
+.col-divider {
+    background: linear-gradient(180deg, transparent, rgba(223, 177, 91, 0.5) 20%, rgba(223, 177, 91, 0.5) 80%, transparent);
+    width: 1px;
+    height: 100%;
+}
+.col-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.item-row:last-child {
+    border-bottom: none;
+}
+.item-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 235px;
+}
+.item-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    color: #dfb15b;
+    text-align: right;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+.page-footer-num {
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+.header-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+.header-brand-logo img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid #dfb15b;
+    box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+}
+.header-brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #dfb15b;
+    letter-spacing: 3px;
+}
+</style>
+</head>
+<body>
+
+<div class="page" style="background-image: linear-gradient(180deg, rgba(6,8,16,0.35) 0%, rgba(6,8,16,0.85) 65%, #04060c 100%), url('fondo_masculinas_seda_azul.jpg'); justify-content: center; align-items: center; text-align: center;">
+    <div style="margin-top: 170px;">
+        <img src="logo_bj_beauty.png" style="width: 215px; height: 215px; border-radius: 50%; box-shadow: 0 0 50px rgba(56, 189, 248, 0.5), 0 0 25px rgba(223, 177, 91, 0.5); border: 2px solid #dfb15b; margin-bottom: 25px;">
+        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 34px; color: #cce4ff; margin-bottom: 4px;">Colección Exclusiva</div>
+        <div style="font-family: 'Cinzel', serif; font-size: 48px; font-weight: 900; letter-spacing: 5px; color: #ffffff; text-shadow: 0 0 25px rgba(255,255,255,0.7);">CATÁLOGO MASCULINO</div>
+        <div style="font-size: 15px; letter-spacing: 4px; color: #38bdf8; text-transform: uppercase; font-weight: 600; margin-top: 6px;">Alta Perfumería • Perfumería Árabe • Distinción & Carácter</div>
+        
+        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 35px;">
+            <span style="background: rgba(10, 15, 28, 0.88); border: 1.5px solid #dfb15b; color: #ffe6a3; padding: 10px 22px; border-radius: 25px; font-weight: 700; font-size: 15px;">✨ 60ml: $22.000 (Promo: 2 x $40.000)</span>
+            <span style="background: rgba(10, 15, 28, 0.88); border: 1.5px solid #38bdf8; color: #bae6fd; padding: 10px 22px; border-radius: 25px; font-weight: 700; font-size: 15px;">👑 Árabes: $24.000</span>
+        </div>
+    </div>
+</div>
+
+<div class="page" style="background-image: url('fondo_nuevos_ingresos_masc.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script sub-script-masc">Tendencias 2026</div>
+        <div class="main-title">NUEVOS INGRESOS</div>
+        <div class="price-badge-pill">ÚLTIMOS LANZAMIENTOS • $22.000 / $24.000</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Altair">Altair</span><span class="item-brand">Parfums de Marly</span></div><div class="item-row"><span class="item-name" title="Amber Oud Aqua Dubai">Amber Oud Aqua Dubai</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Asad Zanzibar">Asad Zanzibar</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Imagination">Imagination</span><span class="item-brand">Louis Vuitton</span></div><div class="item-row"><span class="item-name" title="Khamrah Waha">Khamrah Waha</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Liquid Brun">Liquid Brun</span><span class="item-brand">French Avenue</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Messi">Messi</span><span class="item-brand">Messi</span></div><div class="item-row"><span class="item-name" title="MYSLF LAbsolu">MYSLF LAbsolu</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Noir de Noir">Noir de Noir</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Nouveau Monde">Nouveau Monde</span><span class="item-brand">Louis Vuitton</span></div><div class="item-row"><span class="item-name" title="Nuit de Feu">Nuit de Feu</span><span class="item-brand">Louis Vuitton</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+</div>
+
+<div class="page" style="background-image: url('fondo_arabes_noche.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script sub-script-gold">Perfumería Oriental</div>
+        <div class="main-title">ÁRABES MASCULINAS (I)</div>
+        <div class="price-badge-pill">PRECIO: $24.000 C/U • BEST SELLERS GLOBALES</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="9PM">9PM</span><span class="item-brand">Afnan</span></div><div class="item-row"><span class="item-name" title="9PM Elixir">9PM Elixir</span><span class="item-brand">Afnan</span></div><div class="item-row"><span class="item-name" title="Adeeb">Adeeb</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Alquiam Gold">Alquiam Gold</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Amber Oud Blue Edition">Amber Oud Blue Edition</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Amber Oud Dubai Night">Amber Oud Dubai Night</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Ansaam Silver">Ansaam Silver</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Asad">Asad</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Asad Bourbon">Asad Bourbon</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Asad Elixir">Asad Elixir</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Atlas">Atlas</span><span class="item-brand">Lattafa</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Badee Al Oud for Glory">Badee Al Oud for Glory</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Bharara King">Bharara King</span><span class="item-brand">Bharara</span></div><div class="item-row"><span class="item-name" title="Blue Saphire">Blue Saphire</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Club de Nuit">Club de Nuit</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Club de Nuit Iconic">Club de Nuit Iconic</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Club De Nuit Lionheart">Club De Nuit Lionheart</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Club de Nuit Oud">Club de Nuit Oud</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Fakar Black">Fakar Black</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Hawas">Hawas</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Hawas Atlantis">Hawas Atlantis</span><span class="item-brand">Rasasi</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+</div>
+
+<div class="page" style="background-image: url('fondo_arabes_vortice.jpg'); justify-content: space-between;">
+    <div class="title-container">
+        <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+        <div class="sub-script sub-script-gold">Perfumería Oriental</div>
+        <div class="main-title">ÁRABES MASCULINAS (II)</div>
+        <div class="price-badge-pill">PRECIO: $24.000 C/U • NOTAS DE OUD & CUERO</div>
+    </div>
+    
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Hawas Elixir">Hawas Elixir</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Hawas Ice">Hawas Ice</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Hawas Malibu">Hawas Malibu</span><span class="item-brand">Rasasi</span></div><div class="item-row"><span class="item-name" title="Jean Lowe Immortal">Jean Lowe Immortal</span><span class="item-brand">Maison Alhambra</span></div><div class="item-row"><span class="item-name" title="Khamrah">Khamrah</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Khamrah Dukhan">Khamrah Dukhan</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Khamrah Qawa">Khamrah Qawa</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Maahir Black">Maahir Black</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Mandarine Sky">Mandarine Sky</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Odissey Mandarine Sky Elixir">Odissey Mandarine Sky Elixir</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="Oud For Greatness">Oud For Greatness</span><span class="item-brand">Initio</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Qaed Al Fursan">Qaed Al Fursan</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Salvo">Salvo</span><span class="item-brand">Maison Alhambra</span></div><div class="item-row"><span class="item-name" title="Suqraat">Suqraat</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Tag">Tag</span><span class="item-brand">Armaf</span></div><div class="item-row"><span class="item-name" title="The Kingdom">The Kingdom</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Altair">Altair</span><span class="item-brand">Parfums de Marly</span></div><div class="item-row"><span class="item-name" title="Amber Oud Aqua Dubai">Amber Oud Aqua Dubai</span><span class="item-brand">Al Haramain</span></div><div class="item-row"><span class="item-name" title="Asad Zanzibar">Asad Zanzibar</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Khamrah Waha">Khamrah Waha</span><span class="item-brand">Lattafa</span></div><div class="item-row"><span class="item-name" title="Liquid Brun">Liquid Brun</span><span class="item-brand">French Avenue</span></div>
+        </div>
+    </div>
+    
+    <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+</div>
+
+    <div class="page" style="background-image: url('fondo_masculinas_seda_azul.jpg'); justify-content: space-between;">
+        <div class="title-container">
+            <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+            <div class="sub-script sub-script-masc">Colección Clásica</div>
+            <div class="main-title">MASCULINAS (Parte 1)</div>
+            <div class="price-badge-pill">60 ML • $22.000 • PROMO: 2 x $40.000</div>
+        </div>
+        
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="212 Glam">212 Glam</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 Heroes">212 Heroes</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 New York">212 New York</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 Sexy">212 Sexy</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 Vip">212 Vip</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 Vip Black">212 Vip Black</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 Vip Black Extra">212 Vip Black Extra</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 Vip Wild">212 Vip Wild</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="212 Vip Wins">212 Vip Wins</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="A Men">A Men</span><span class="item-brand">Thierry Mugler</span></div><div class="item-row"><span class="item-name" title="A Men Fantasm">A Men Fantasm</span><span class="item-brand">Mugler</span></div><div class="item-row"><span class="item-name" title="Acqua Di Gio">Acqua Di Gio</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Acqua Di Gio Essenza">Acqua Di Gio Essenza</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Acqua Di Gio Profondo">Acqua Di Gio Profondo</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Acqua Di Gio Profumo">Acqua Di Gio Profumo</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Alien Man">Alien Man</span><span class="item-brand">Thierry Mugler</span></div><div class="item-row"><span class="item-name" title="Allure Homme Sport">Allure Homme Sport</span><span class="item-brand">Chanel</span></div><div class="item-row"><span class="item-name" title="Angel Man">Angel Man</span><span class="item-brand">Thierry Mugler</span></div><div class="item-row"><span class="item-name" title="Aqva Marine">Aqva Marine</span><span class="item-brand">Bulgari</span></div><div class="item-row"><span class="item-name" title="Armani Code">Armani Code</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Armani Code Absolu">Armani Code Absolu</span><span class="item-brand">Giorgio Armani</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Armani Code Profumo">Armani Code Profumo</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Artik Sea">Artik Sea</span><span class="item-brand">Lorenzo Pazzaglia</span></div><div class="item-row"><span class="item-name" title="Azzaro">Azzaro</span><span class="item-brand">Azzaro</span></div><div class="item-row"><span class="item-name" title="Bad Boy">Bad Boy</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="Bad Boy Cobalt">Bad Boy Cobalt</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="Bad Boy Dazzling Garden">Bad Boy Dazzling Garden</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="Bad Boy Extreme">Bad Boy Extreme</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="Bad Boy Le Parfum">Bad Boy Le Parfum</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="Bleu">Bleu</span><span class="item-brand">Chanel</span></div><div class="item-row"><span class="item-name" title="Blue Jeans">Blue Jeans</span><span class="item-brand">Versace</span></div><div class="item-row"><span class="item-name" title="Blue Label">Blue Label</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Blue Seduction">Blue Seduction</span><span class="item-brand">Antonio Banderas</span></div><div class="item-row"><span class="item-name" title="BLV Notte">BLV Notte</span><span class="item-brand">Bulgari</span></div><div class="item-row"><span class="item-name" title="Boos Intense">Boos Intense</span><span class="item-brand">Boos</span></div><div class="item-row"><span class="item-name" title="Boos Intense Night">Boos Intense Night</span><span class="item-brand">Boos</span></div><div class="item-row"><span class="item-name" title="Boss Bottled Absolute">Boss Bottled Absolute</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Boss The Scent Elixir">Boss The Scent Elixir</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Bulgari Man Extreme">Bulgari Man Extreme</span><span class="item-brand">Bulgari</span></div><div class="item-row"><span class="item-name" title="Bulgari Man In Black">Bulgari Man In Black</span><span class="item-brand">Bulgari</span></div><div class="item-row"><span class="item-name" title="Bulgari Wood Essence">Bulgari Wood Essence</span><span class="item-brand">Bulgari</span></div><div class="item-row"><span class="item-name" title="Carolina Herrera Clásico">Carolina Herrera Clásico</span><span class="item-brand">Carolina Herrera</span></div>
+        </div>
+    </div>
+    
+        <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+    </div>
+    
+    <div class="page" style="background-image: url('fondo_masculinas_estrellas.jpg'); justify-content: space-between;">
+        <div class="title-container">
+            <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+            <div class="sub-script sub-script-masc">Colección Clásica</div>
+            <div class="main-title">MASCULINAS (Parte 2)</div>
+            <div class="price-badge-pill">60 ML • $22.000 • PROMO: 2 x $40.000</div>
+        </div>
+        
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="CH Men">CH Men</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="CH Prive">CH Prive</span><span class="item-brand">Carolina Herrera</span></div><div class="item-row"><span class="item-name" title="CK In 2U">CK In 2U</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="CK Man">CK Man</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="CK One Gold">CK One Gold</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="CK One Red">CK One Red</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Cool Water">Cool Water</span><span class="item-brand">Davidoff</span></div><div class="item-row"><span class="item-name" title="Costa Azzurra">Costa Azzurra</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Creed Aventus">Creed Aventus</span><span class="item-brand">Creed</span></div><div class="item-row"><span class="item-name" title="Creed Royal Oud">Creed Royal Oud</span><span class="item-brand">Creed</span></div><div class="item-row"><span class="item-name" title="Dark Blue">Dark Blue</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Defy">Defy</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Devotion Pour Homme">Devotion Pour Homme</span><span class="item-brand">Dolce & Gabbana</span></div><div class="item-row"><span class="item-name" title="Dior Homme">Dior Homme</span><span class="item-brand">Christian Dior</span></div><div class="item-row"><span class="item-name" title="Dior Homme Intense">Dior Homme Intense</span><span class="item-brand">Christian Dior</span></div><div class="item-row"><span class="item-name" title="Dior Homme Sport">Dior Homme Sport</span><span class="item-brand">Christian Dior</span></div><div class="item-row"><span class="item-name" title="The Dreamer">The Dreamer</span><span class="item-brand">Versace</span></div><div class="item-row"><span class="item-name" title="Dylan Blue">Dylan Blue</span><span class="item-brand">Versace</span></div><div class="item-row"><span class="item-name" title="Eau Sauvage">Eau Sauvage</span><span class="item-brand">Christian Dior</span></div><div class="item-row"><span class="item-name" title="Ebano">Ebano</span><span class="item-brand">Fragancia Exclusiva</span></div><div class="item-row"><span class="item-name" title="Emporio Night">Emporio Night</span><span class="item-brand">Armani</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Eros">Eros</span><span class="item-brand">Versace</span></div><div class="item-row"><span class="item-name" title="Eros Energy">Eros Energy</span><span class="item-brand">Versace</span></div><div class="item-row"><span class="item-name" title="Eros Flame">Eros Flame</span><span class="item-brand">Versace</span></div><div class="item-row"><span class="item-name" title="Eternity Air">Eternity Air</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Fahrenheit">Fahrenheit</span><span class="item-brand">Christian Dior</span></div><div class="item-row"><span class="item-name" title="Fahrenheit 32">Fahrenheit 32</span><span class="item-brand">Christian Dior</span></div><div class="item-row"><span class="item-name" title="Fan di Fendi">Fan di Fendi</span><span class="item-brand">Fendi</span></div><div class="item-row"><span class="item-name" title="Ferrari Black">Ferrari Black</span><span class="item-brand">Ferrari</span></div><div class="item-row"><span class="item-name" title="Ferrari Red">Ferrari Red</span><span class="item-brand">Ferrari</span></div><div class="item-row"><span class="item-name" title="Fierce">Fierce</span><span class="item-brand">Abercrombie & Fitch</span></div><div class="item-row"><span class="item-name" title="Fleur Du Male">Fleur Du Male</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Fucking Fabulous">Fucking Fabulous</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Full Incense">Full Incense</span><span class="item-brand">Montale</span></div><div class="item-row"><span class="item-name" title="Fusion D'Issey">Fusion D'Issey</span><span class="item-brand">Issey Miyake</span></div><div class="item-row"><span class="item-name" title="Gentleman Only">Gentleman Only</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Gentleman Only Absolut">Gentleman Only Absolut</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Gentleman Reserve Prive">Gentleman Reserve Prive</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Gentleman Society">Gentleman Society</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Gucci Guilty Black">Gucci Guilty Black</span><span class="item-brand">Gucci</span></div><div class="item-row"><span class="item-name" title="Halloween Man">Halloween Man</span><span class="item-brand">J. Del Pozo</span></div><div class="item-row"><span class="item-name" title="Haltane">Haltane</span><span class="item-brand">Parfums de Marly</span></div>
+        </div>
+    </div>
+    
+        <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+    </div>
+    
+    <div class="page" style="background-image: url('fondo_masculinas_seda_azul.jpg'); justify-content: space-between;">
+        <div class="title-container">
+            <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+            <div class="sub-script sub-script-masc">Colección Clásica</div>
+            <div class="main-title">MASCULINAS (Parte 3)</div>
+            <div class="price-badge-pill">60 ML • $22.000 • PROMO: 2 x $40.000</div>
+        </div>
+        
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Homem Dom">Homem Dom</span><span class="item-brand">Natura</span></div><div class="item-row"><span class="item-name" title="Hugo Boss">Hugo Boss</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Hugo Boss Bottled">Hugo Boss Bottled</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Hugo Boss Bottled Infinite">Hugo Boss Bottled Infinite</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Hugo Boss Just Different">Hugo Boss Just Different</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Hugo Boss Night Bottled">Hugo Boss Night Bottled</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Hugo Boss Red">Hugo Boss Red</span><span class="item-brand">Hugo Boss</span></div><div class="item-row"><span class="item-name" title="Hypnose Homme">Hypnose Homme</span><span class="item-brand">Lancôme</span></div><div class="item-row"><span class="item-name" title="The Icon">The Icon</span><span class="item-brand">Antonio Banderas</span></div><div class="item-row"><span class="item-name" title="Impact">Impact</span><span class="item-brand">Tommy Hilfiger</span></div><div class="item-row"><span class="item-name" title="Insense Ultramarine">Insense Ultramarine</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Invictus">Invictus</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Acqua">Invictus Acqua</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Intense">Invictus Intense</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Legend">Invictus Legend</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Onyx">Invictus Onyx</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Parfum">Invictus Parfum</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Platinum">Invictus Platinum</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Victory">Invictus Victory</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Victory Absolu">Invictus Victory Absolu</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Invictus Victory Elixir">Invictus Victory Elixir</span><span class="item-brand">Paco Rabanne</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Jazz">Jazz</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Joop!">Joop!</span><span class="item-brand">Joop!</span></div><div class="item-row"><span class="item-name" title="Kenzo Homme">Kenzo Homme</span><span class="item-brand">Kenzo</span></div><div class="item-row"><span class="item-name" title="Kenzo Homme Eau de Parfum">Kenzo Homme Eau de Parfum</span><span class="item-brand">Kenzo</span></div><div class="item-row"><span class="item-name" title="Kenzo Homme Night">Kenzo Homme Night</span><span class="item-brand">Kenzo</span></div><div class="item-row"><span class="item-name" title="K (King)">K (King)</span><span class="item-brand">Dolce & Gabbana</span></div><div class="item-row"><span class="item-name" title="King of Seduction">King of Seduction</span><span class="item-brand">Antonio Banderas</span></div><div class="item-row"><span class="item-name" title="L´Bleau D Issey">L´Bleau D Issey</span><span class="item-brand">Issey Miyake</span></div><div class="item-row"><span class="item-name" title="L´Eau D Issey">L´Eau D Issey</span><span class="item-brand">Issey Miyake</span></div><div class="item-row"><span class="item-name" title="L´Eau Par Kenzo">L´Eau Par Kenzo</span><span class="item-brand">Kenzo</span></div><div class="item-row"><span class="item-name" title="L´Homme Ideal">L´Homme Ideal</span><span class="item-brand">Guerlain</span></div><div class="item-row"><span class="item-name" title="La Nuit de L´Homme Bleu Electrique">La Nuit de L´Homme Bleu Electrique</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Lacoste Bleu">Lacoste Bleu</span><span class="item-brand">Lacoste</span></div><div class="item-row"><span class="item-name" title="Layton Exclusif">Layton Exclusif</span><span class="item-brand">Parfums de Marly</span></div><div class="item-row"><span class="item-name" title="Le Beau">Le Beau</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Le Beau Le Parfum">Le Beau Le Parfum</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Le Beau Paradise Garden">Le Beau Paradise Garden</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Le Male Elixir">Le Male Elixir</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Le Male Elixir Absolu">Le Male Elixir Absolu</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Le Male Le Parfum">Le Male Le Parfum</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Le Male">Le Male</span><span class="item-brand">Jean Paul Gaultier</span></div>
+        </div>
+    </div>
+    
+        <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+    </div>
+    
+    <div class="page" style="background-image: url('fondo_masculinas_estrellas.jpg'); justify-content: space-between;">
+        <div class="title-container">
+            <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+            <div class="sub-script sub-script-masc">Colección Clásica</div>
+            <div class="main-title">MASCULINAS (Parte 4)</div>
+            <div class="price-badge-pill">60 ML • $22.000 • PROMO: 2 x $40.000</div>
+        </div>
+        
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Legend">Legend</span><span class="item-brand">Montblanc</span></div><div class="item-row"><span class="item-name" title="L'Homme Libre">L'Homme Libre</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Light Blue Pour Homme">Light Blue Pour Homme</span><span class="item-brand">Dolce & Gabbana</span></div><div class="item-row"><span class="item-name" title="Loewe 7">Loewe 7</span><span class="item-brand">Loewe</span></div><div class="item-row"><span class="item-name" title="Loewe Scent Of Marihuana">Loewe Scent Of Marihuana</span><span class="item-brand">Loewe</span></div><div class="item-row"><span class="item-name" title="Luna Rossa">Luna Rossa</span><span class="item-brand">Prada</span></div><div class="item-row"><span class="item-name" title="Million Gold">Million Gold</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="MYSLF">MYSLF</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Narciso Rodriguez For Him">Narciso Rodriguez For Him</span><span class="item-brand">Narciso Rodríguez</span></div><div class="item-row"><span class="item-name" title="Nuit D'Issey">Nuit D'Issey</span><span class="item-brand">Issey Miyake</span></div><div class="item-row"><span class="item-name" title="Nuit D'Issey Bleu Astral">Nuit D'Issey Bleu Astral</span><span class="item-brand">Issey Miyake</span></div><div class="item-row"><span class="item-name" title="Nuit de L'Homme">Nuit de L'Homme</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Ombre Leather">Ombre Leather</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Ombre Nomade">Ombre Nomade</span><span class="item-brand">Louis Vuitton</span></div><div class="item-row"><span class="item-name" title="One Million">One Million</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="One Million Elixir">One Million Elixir</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="One Million Golden Oud">One Million Golden Oud</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="One Million Intense">One Million Intense</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="One Million Lucky">One Million Lucky</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="One Million Prive">One Million Prive</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="One Million Royal">One Million Royal</span><span class="item-brand">Paco Rabanne</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Oud Wood">Oud Wood</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Oud Zarian">Oud Zarian</span><span class="item-brand">Creed</span></div><div class="item-row"><span class="item-name" title="Patchouli 24">Patchouli 24</span><span class="item-brand">Le Labo</span></div><div class="item-row"><span class="item-name" title="Phantom">Phantom</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Phantom Parfum">Phantom Parfum</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Pi">Pi</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Play Intense">Play Intense</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Polo">Polo</span><span class="item-brand">Ralph Lauren</span></div><div class="item-row"><span class="item-name" title="Polo Black">Polo Black</span><span class="item-brand">Ralph Lauren</span></div><div class="item-row"><span class="item-name" title="Polo Blue">Polo Blue</span><span class="item-brand">Ralph Lauren</span></div><div class="item-row"><span class="item-name" title="Polo Red">Polo Red</span><span class="item-brand">Ralph Lauren</span></div><div class="item-row"><span class="item-name" title="Polo Red Rush">Polo Red Rush</span><span class="item-brand">Ralph Lauren</span></div><div class="item-row"><span class="item-name" title="Polo Sport">Polo Sport</span><span class="item-brand">Ralph Lauren</span></div><div class="item-row"><span class="item-name" title="Polo Ultrablue">Polo Ultrablue</span><span class="item-brand">Ralph Lauren</span></div><div class="item-row"><span class="item-name" title="Pour Homme">Pour Homme</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Power of Seduction">Power of Seduction</span><span class="item-brand">Antonio Banderas</span></div><div class="item-row"><span class="item-name" title="Pure Havane A Men">Pure Havane A Men</span><span class="item-brand">Thierry Mugler</span></div><div class="item-row"><span class="item-name" title="Pure XS Night">Pure XS Night</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Royal Oud">Royal Oud</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Sauvage">Sauvage</span><span class="item-brand">Christian Dior</span></div><div class="item-row"><span class="item-name" title="Sauvage Elixir">Sauvage Elixir</span><span class="item-brand">Christian Dior</span></div>
+        </div>
+    </div>
+    
+        <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+    </div>
+    
+    <div class="page" style="background-image: url('fondo_masculinas_seda_azul.jpg'); justify-content: space-between;">
+        <div class="title-container">
+            <div class="header-brand-logo"><img src="logo_bj_beauty.png"><span class="header-brand-name">BJ BEAUTY</span></div>
+            <div class="sub-script sub-script-masc">Colección Clásica</div>
+            <div class="main-title">MASCULINAS (Parte 5)</div>
+            <div class="price-badge-pill">60 ML • $22.000 • PROMO: 2 x $40.000</div>
+        </div>
+        
+    <div class="fragrance-list-card-2col">
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Scandal Pour Homme">Scandal Pour Homme</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Scandal Absolu">Scandal Absolu</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Scandal Intense">Scandal Intense</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Scandal Le Parfum">Scandal Le Parfum</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Shock">Shock</span><span class="item-brand">Calvin Klein</span></div><div class="item-row"><span class="item-name" title="Spicebomb">Spicebomb</span><span class="item-brand">Viktor & Rolf</span></div><div class="item-row"><span class="item-name" title="Spicebomb Metallique Musk">Spicebomb Metallique Musk</span><span class="item-brand">Viktor & Rolf</span></div><div class="item-row"><span class="item-name" title="Starwalker">Starwalker</span><span class="item-brand">Montblanc</span></div><div class="item-row"><span class="item-name" title="Stronger With You">Stronger With You</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Stronger With You Absolutely">Stronger With You Absolutely</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Stronger With You Intensely">Stronger With You Intensely</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Stronger With You Oud">Stronger With You Oud</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Stronger With You Sandalwood">Stronger With You Sandalwood</span><span class="item-brand">Giorgio Armani</span></div><div class="item-row"><span class="item-name" title="Ted Lapidus">Ted Lapidus</span><span class="item-brand">Ted Lapidus</span></div><div class="item-row"><span class="item-name" title="Terre d'Hermès">Terre d'Hermès</span><span class="item-brand">Hermès</span></div><div class="item-row"><span class="item-name" title="The Most Wanted">The Most Wanted</span><span class="item-brand">Azzaro</span></div><div class="item-row"><span class="item-name" title="The One">The One</span><span class="item-brand">Dolce & Gabbana</span></div><div class="item-row"><span class="item-name" title="The One Grey">The One Grey</span><span class="item-brand">Dolce & Gabbana</span></div><div class="item-row"><span class="item-name" title="Tobacco Vanille">Tobacco Vanille</span><span class="item-brand">Tom Ford</span></div><div class="item-row"><span class="item-name" title="Tommy Hilfiger">Tommy Hilfiger</span><span class="item-brand">Tommy Hilfiger</span></div><div class="item-row"><span class="item-name" title="Toy Boy">Toy Boy</span><span class="item-brand">Moschino</span></div>
+        </div>
+        <div class="col-divider"></div>
+        <div class="col-list">
+            <div class="item-row"><span class="item-name" title="Tsar">Tsar</span><span class="item-brand">Van Cleef & Arpels</span></div><div class="item-row"><span class="item-name" title="Ultra Male">Ultra Male</span><span class="item-brand">Jean Paul Gaultier</span></div><div class="item-row"><span class="item-name" title="Ultraviolet">Ultraviolet</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Valentino Born in Roma">Valentino Born in Roma</span><span class="item-brand">Valentino</span></div><div class="item-row"><span class="item-name" title="Valentino Born In Roma Gold">Valentino Born In Roma Gold</span><span class="item-brand">Valentino</span></div><div class="item-row"><span class="item-name" title="Valentino Uomo Born in Roma Extradose">Valentino Uomo Born in Roma Extradose</span><span class="item-brand">Valentino</span></div><div class="item-row"><span class="item-name" title="Valentino Uomo Born in Roma Intense">Valentino Uomo Born in Roma Intense</span><span class="item-brand">Valentino</span></div><div class="item-row"><span class="item-name" title="Valentino Uomo">Valentino Uomo</span><span class="item-brand">Valentino</span></div><div class="item-row"><span class="item-name" title="Very Irresistible For Men">Very Irresistible For Men</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="Wanted">Wanted</span><span class="item-brand">Azzaro</span></div><div class="item-row"><span class="item-name" title="Wanted By Night">Wanted By Night</span><span class="item-brand">Azzaro</span></div><div class="item-row"><span class="item-name" title="Wulong Cha">Wulong Cha</span><span class="item-brand">Nishane</span></div><div class="item-row"><span class="item-name" title="Xeryus Rouge">Xeryus Rouge</span><span class="item-brand">Givenchy</span></div><div class="item-row"><span class="item-name" title="XS">XS</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="XS Aphrodisiaque">XS Aphrodisiaque</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="XS Black">XS Black</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="XS L'Excess">XS L'Excess</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="XS Pure">XS Pure</span><span class="item-brand">Paco Rabanne</span></div><div class="item-row"><span class="item-name" title="Y Eau de Parfum">Y Eau de Parfum</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Y Elixir">Y Elixir</span><span class="item-brand">Yves Saint Laurent</span></div><div class="item-row"><span class="item-name" title="Y Live">Y Live</span><span class="item-brand">Yves Saint Laurent</span></div>
+        </div>
+    </div>
+    
+        <div class="page-footer-num">BJ BEAUTY • Colección Masculina</div>
+    </div>
+    
+<div class="page" style="background-image: linear-gradient(rgba(6,8,16,0.9), rgba(6,8,16,0.95)), url('fondo_masculinas_estrellas.jpg'); justify-content: center;">
+    <div style="text-align: center; max-width: 680px; background: rgba(14, 18, 30, 0.88); border: 1.5px solid #dfb15b; border-radius: 20px; padding: 45px 35px; box-shadow: 0 12px 45px rgba(0,0,0,0.85);">
+        <img src="logo_bj_beauty.png" style="width: 110px; height: 110px; border-radius: 50%; box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); border: 1.5px solid #dfb15b; margin-bottom: 20px;">
+        <div style="font-family: 'Cinzel', serif; font-size: 32px; color: #dfb15b; margin-bottom: 12px; font-weight: 800;">¿CÓMO REALIZAR TU PEDIDO?</div>
+        <p style="color: #e2e8f0; font-size: 16px; margin-bottom: 25px; line-height: 1.6;">Elegí tus fragancias favoritas y coordiná tu pedido directamente por WhatsApp.</p>
+        
+        <div style="background: rgba(0,0,0,0.55); border: 1px solid rgba(223, 177, 91, 0.35); border-radius: 12px; padding: 20px; margin-bottom: 25px; text-align: left;">
+            <div style="font-size: 15px; color: #bae6fd; margin-bottom: 8px;">💳 <b>Medios de Pago:</b></div>
+            <div style="color: #cbd5e1; font-size: 14px; margin-bottom: 14px;">• Efectivo / Transferencias (Mercado Pago, Cuenta DNI, Bancarias)</div>
+            <div style="font-size: 15px; color: #ffe6a3; margin-bottom: 8px;">📦 <b>Entregas:</b></div>
+            <div style="color: #cbd5e1; font-size: 14px;">• Puntos de encuentro y envíos a domicilio coordinados.</div>
+        </div>
+
+        <div style="font-family: 'Cinzel', serif; font-size: 22px; color: #fff; margin-bottom: 6px;">BJ BEAUTY • ALTA PERFUMERÍA</div>
+        <div style="color: #38bdf8; font-size: 14px; letter-spacing: 2px;">INTENSIDAD • FIJACIÓN • DISTINCIÓN</div>
+    </div>
+</div>
+</body></html>

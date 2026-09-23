@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Oficial de Fragancias & Aromas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #dfb15b;
+            --gold-light: #f7e0a3;
+            --gold-dark: #a87e2b;
+            --bg-dark: #0b0c10;
+            --card-bg: rgba(22, 24, 34, 0.85);
+            --text-main: #f0f0f5;
+            --text-muted: #a0a5b5;
+            --accent-pink: #ff7597;
+            --accent-blue: #4ea8de;
+            --accent-purple: #b388ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.5;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(223, 177, 91, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(179, 136, 255, 0.08) 0%, transparent 40%);
+            padding-bottom: 50px;
+        }
+
+        .no-print-bar {
+            background: linear-gradient(90deg, #1f1c2c, #928dab);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000;
+            font-weight: 700;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(223, 177, 91, 0.3);
+        }
+
+        .btn-print:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(223, 177, 91, 0.5);
+        }
+
+        .catalog-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HEADER / PORTADA */
+        .catalog-header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .catalog-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            letter-spacing: 4px;
+            background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .catalog-header .subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* PRECIOS DESTACADOS */
+        .pricing-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        }
+
+        .price-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .price-tag {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .price-promo {
+            font-size: 0.9rem;
+            color: var(--accent-pink);
+            font-weight: 600;
+        }
+
+        /* CATEGORÍAS */
+        .category-section {
+            margin-bottom: 45px;
+            page-break-inside: avoid;
+        }
+
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.7rem;
+            color: var(--gold);
+            border-bottom: 1px solid rgba(223, 177, 91, 0.4);
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-title span.badge {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            background: rgba(223, 177, 91, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 3px 10px;
+            border-radius: 15px;
+            text-transform: uppercase;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 12px;
+        }
+
+        .item-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .item-card:hover {
+            border-color: var(--gold);
+            background: rgba(223, 177, 91, 0.06);
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: #fff;
+        }
+
+        .item-brand {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* COMBO AUTO & TEXTIL SPECIAL */
+        .combo-box {
+            background: linear-gradient(135deg, rgba(223, 177, 91, 0.1), rgba(0,0,0,0.5));
+            border: 2px dashed var(--gold);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+
+        .combo-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .combo-header h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+
+        .combo-header p {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+        }
+
+        .aromas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .aroma-badge {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(223, 177, 91, 0.4);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .aroma-badge small {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: normal;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media print {
+            body {
+                background: #000 !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print-bar {
+                display: none !important;
+            }
+            .catalog-container {
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            .item-card {
+                border-color: #555 !important;
+                background: #111 !important;
+            }
+            .category-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-bar">
+        <div>
+            <strong>✨ Catálogo de Fragancias & Línea Automóvil</strong> | Listo para Imprimir o Guardar como PDF
+        </div>
+        <button class="btn-print" onclick="window.print()">📥 Guardar como PDF / Imprimir</button>
+    </div>
+
+    <div class="catalog-container">
+        <!-- HEADER -->
+        <div class="catalog-header">
+            <h1>Colección Exclusiva</h1>
+            <div class="subtitle">Alta Perfumería • Fragancias Árabes • Línea Automotor & Textil</div>
+        </div>
+
+        <!-- LISTA DE PRECIOS PRINCIPAL -->
+        <div class="pricing-banner">
+            <div class="price-card">
+                <h3>Perfumes 60ml</h3>
+                <div class="price-tag">$22.000</div>
+                <div class="price-promo">🔥 Promo: 2 unidades x $40.000</div>
+                <small style="color:#aaa; display:block; margin-top:8px;">Alta concentración • Máxima persistencia</small>
+            </div>
+            <div class="price-card">
+                <h3>Cápsula Fusión / Árabes</h3>
+                <div class="price-tag">$24.000</div>
+                <div class="price-promo">✨ Línea Premium & Tendencias</div>
+                <small style="color:#aaa; display:block; margin-top:8px;">Edición Limitada de Lujo</small>
+            </div>
+            <div class="price-card">
+                <h3>Combo Auto + Textil</h3>
+                <div class="price-tag">$11.000</div>
+                <div class="price-promo">🚗 Promo: 2 combos x $20.000</div>
+                <small style="color:#aaa; display:block; margin-top:8px;">Textil 30ml + Difusor 8ml</small>
+            </div>
+        </div>
+
+        <!-- CÁPSULA FUSIÓN -->
+        <div class="category-section">
+            <div class="category-title">
+                Cápsula Fusión Exclusiva <span class="badge">Edición Especial</span>
+            </div>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-name">Fusión N°1: Midnight Crown</div><div class="item-brand">Masculino</div></div>
+                <div class="item-card"><div class="item-name">Fusión N°2: Rosé Infinity</div><div class="item-brand">Femenino</div></div>
+                <div class="item-card"><div class="item-name">Fusión N°3: Forbidden Nights</div><div class="item-brand">Masculino</div></div>
+                <div class="item-card"><div class="item-name">Fusión N°4: Sky Kiss</div><div class="item-brand">Femenino</div></div>
+                <div class="item-card"><div class="item-name">Fusión N°5: Imperium</div><div class="item-brand">Masculino</div></div>
+                <div class="item-card"><div class="item-name">Fusión N°6: Velour Rouge</div><div class="item-brand">Femenino</div></div>
+            </div>
+        </div>
+
+        <!-- LÍNEA AUTOMÓVIL Y TEXTIL -->
+        <div class="combo-box">
+            <div class="combo-header">
+                <h2>🚗 Combo Automóvil + Fragancia Textil</h2>
+                <p>Aromas intensos y duraderos para tapizados, alfombras y colgar en el retrovisor (30ml Spray + 8ml Difusor)</p>
+            </div>
+            <div class="aromas-grid">
+                <div class="aroma-badge">1. Jazmín <small>Floral y elegante</small></div>
+                <div class="aroma-badge">2. Frutos Rojos <small>Dulce y envolvente</small></div>
+                <div class="aroma-badge">3. Naranja Pimienta <small>Cítrico y vibrante</small></div>
+                <div class="aroma-badge">4. Limón <small>Fresco y energizante</small></div>
+                <div class="aroma-badge">5. Sandía Pepino <small>Refrescante y liviano</small></div>
+                <div class="aroma-badge">6. Erba Pura <small>Exótico y adictivo</small></div>
+                <div class="aroma-badge">7. Grosellas & Nectarina <small>Frutal y jugoso</small></div>
+                <div class="aroma-badge">8. Uva <small>Intenso y dulce</small></div>
+                <div class="aroma-badge">9. Chicle <small>Divertido y único</small></div>
+                <div class="aroma-badge">10. Cherry <small>Dulce y seductor</small></div>
+                <div class="aroma-badge">11. Coco & Vainilla <small>Cálido y envolvente</small></div>
+                <div class="aroma-badge">12. Naranja Canela <small>Especiado y reconfortante</small></div>
+                <div class="aroma-badge">13. La Vie Est Belle <small>Dulce, floral y sofisticado</small></div>
+            </div>
+        </div>
+
+        <!-- NUEVOS INGRESOS -->
+        <div class="category-section">
+            <div class="category-title">
+                Nuevos Ingresos <span class="badge">Tendencias</span>
+            </div>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-name">Power of You</div><div class="item-brand">Giorgio Armani (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Born in Roma Extradose</div><div class="item-brand">Valentino (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Victoria</div><div class="item-brand">Lattafa (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Altair</div><div class="item-brand">Parfums de Marly (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Amber Oud Aqua Dubai</div><div class="item-brand">Al Haramain (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Asad Zanzibar</div><div class="item-brand">Lattafa (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Imagination</div><div class="item-brand">Louis Vuitton (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Khamrah Waha</div><div class="item-brand">Lattafa (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Liquid Brun</div><div class="item-brand">French Avenue (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Messi</div><div class="item-brand">Messi (Masc)</div></div>
+                <div class="item-card"><div class="item-name">MYSLF L'Absolu</div><div class="item-brand">Yves Saint Laurent (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Noir de Noir</div><div class="item-brand">Tom Ford (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Nouveau Monde</div><div class="item-brand">Louis Vuitton (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Nuit de Feu</div><div class="item-brand">Louis Vuitton (Masc)</div></div>
+            </div>
+        </div>
+
+        <!-- FRAGANCIAS ÁRABES -->
+        <div class="category-section">
+            <div class="category-title">
+                Fragancias Árabes <span class="badge">Top Ventas</span>
+            </div>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-name">Yara / Candy / Tous / Moi / Elixir</div><div class="item-brand">Lattafa (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Eclaire / Eclaire Pistache</div><div class="item-brand">Lattafa (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Fakhar Rosé</div><div class="item-brand">Lattafa (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Mayar / Mayar Cherry Intense</div><div class="item-brand">Lattafa (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Eden Sparkling</div><div class="item-brand">Kayali (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Teriaq / Sakeena / Qimmah</div><div class="item-brand">Lattafa (Fem)</div></div>
+                <div class="item-card"><div class="item-name">Noble Blush / Opulent Musk</div><div class="item-brand">Lattafa (Fem)</div></div>
+                <div class="item-card"><div class="item-name">9PM / 9PM Elixir</div><div class="item-brand">Afnan (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Asad / Bourbon / Elixir</div><div class="item-brand">Lattafa (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Club de Nuit (Iconic, Lionheart, Oud)</div><div class="item-brand">Armaf (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Hawas / Atlantis / Elixir / Ice / Malibu</div><div class="item-brand">Rasasi (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Khamrah / Dukhan / Qawa</div><div class="item-brand">Lattafa (Masc)</div></div>
+                <div class="item-card"><div class="item-name">Bade'e Al Oud (Honor & Glory, Sublime)</div><div class="item-brand">Lattafa (Unisex/Masc)</div></div>
+                <div class="item-card"><div class="item-name">Amber Oud (Gold / Blue / Dubai Night)</div><div class="item-brand">Al Haramain</div></div>
+                <div class="item-card"><div class="item-name">Jean Lowe Immortal / Salvo</div><div class="item-brand">Maison Alhambra</div></div>
+                <div class="item-card"><div class="item-name">Yum Pistachio Gelato</div><div class="item-brand">Kayali (Unisex)</div></div>
+                <div class="item-card"><div class="item-name">Nebras / Thara / Al Jawara</div><div class="item-brand">Lattafa (Unisex)</div></div>
+            </div>
+        </div>
+
+        <!-- FRAGANCIAS FEMENINAS CLÁSICAS -->
+        <div class="category-section">
+            <div class="category-title">
+                Fragancias Femeninas <span class="badge">Diseñador</span>
+            </div>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-name">212 (VIP, Sexy, Rosé, Heroes, Glam)</div><div class="item-brand">Carolina Herrera</div></div>
+                <div class="item-card"><div class="item-name">Good Girl (Blush, Supreme, Dazzling, Glam)</div><div class="item-brand">Carolina Herrera</div></div>
+                <div class="item-card"><div class="item-name">La Vida es Bella (Elixir, Florale, Rose)</div><div class="item-brand">Lancôme</div></div>
+                <div class="item-card"><div class="item-name">Idôle / Idôle Aura / Hypnôse</div><div class="item-brand">Lancôme</div></div>
+                <div class="item-card"><div class="item-name">J'Adore / Hypnotic Poison / Miss Dior</div><div class="item-brand">Christian Dior</div></div>
+                <div class="item-card"><div class="item-name">Angel / Alien / Goddess / Nova</div><div class="item-brand">Thierry Mugler</div></div>
+                <div class="item-card"><div class="item-name">Black Opium (Neon, Over Red, Glowing)</div><div class="item-brand">Yves Saint Laurent</div></div>
+                <div class="item-card"><div class="item-name">Libre / Mon Paris</div><div class="item-brand">Yves Saint Laurent</div></div>
+                <div class="item-card"><div class="item-name">Scandal (Gold, Le Parfum, By Night)</div><div class="item-brand">Jean Paul Gaultier</div></div>
+                <div class="item-card"><div class="item-name">Divine / Divine Elixir / La Belle</div><div class="item-brand">Jean Paul Gaultier</div></div>
+                <div class="item-card"><div class="item-name">Fame (Couture, In Love, Lady Gaga)</div><div class="item-brand">Paco Rabanne</div></div>
+                <div class="item-card"><div class="item-name">Olympea (Blossom, Intense, Legend, Solar)</div><div class="item-brand">Paco Rabanne</div></div>
+                <div class="item-card"><div class="item-name">Lady Million (Empire, Fabulous, Royal)</div><div class="item-brand">Paco Rabanne</div></div>
+                <div class="item-card"><div class="item-name">L'Interdit / L'Interdit Rouge / Ange ou Démon</div><div class="item-brand">Givenchy</div></div>
+                <div class="item-card"><div class="item-name">Light Blue / Intense / Sun / Devotion / Q</div><div class="item-brand">Dolce & Gabbana</div></div>
+                <div class="item-card"><div class="item-name">My Way / My Way Intense / Sí / Sí Passione</div><div class="item-brand">Giorgio Armani</div></div>
+                <div class="item-card"><div class="item-name">Chanel N°5 / Coco Chanel / Chance / Allure</div><div class="item-brand">Chanel</div></div>
+                <div class="item-card"><div class="item-name">Cloud / Sweet Like Candy</div><div class="item-brand">Ariana Grande</div></div>
+                <div class="item-card"><div class="item-name">Fantasy / Midnight Fantasy / Radiance</div><div class="item-brand">Britney Spears</div></div>
+                <div class="item-card"><div class="item-name">Toy 2 / Toy 2 Bubble Gum / Love Love</div><div class="item-brand">Moschino</div></div>
+                <div class="item-card"><div class="item-name">Nina / Rouge / Luna / Bella</div><div class="item-brand">Nina Ricci</div></div>
+                <div class="item-card"><div class="item-name">Delina</div><div class="item-brand">Parfums de Marly</div></div>
+                <div class="item-card"><div class="item-name">Black Orchid / Santal Blush / Metallique</div><div class="item-brand">Tom Ford</div></div>
+                <div class="item-card"><div class="item-name">Flower / Ikebana / Jungle / Amour</div><div class="item-brand">Kenzo</div></div>
+            </div>
+        </div>
+
+        <!-- FRAGANCIAS MASCULINAS CLÁSICAS -->
+        <div class="category-section">
+            <div class="category-title">
+                Fragancias Masculinas <span class="badge">Diseñador</span>
+            </div>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-name">Sauvage / Sauvage Elixir / Fahrenheit / Dior Homme</div><div class="item-brand">Christian Dior</div></div>
+                <div class="item-card"><div class="item-name">Invictus (Victory, Elixir, Legend, Platinum, Onyx)</div><div class="item-brand">Paco Rabanne</div></div>
+                <div class="item-card"><div class="item-name">One Million (Elixir, Lucky, Royal, Golden Oud)</div><div class="item-brand">Paco Rabanne</div></div>
+                <div class="item-card"><div class="item-name">Phantom / Phantom Parfum / XS / Pure XS</div><div class="item-brand">Paco Rabanne</div></div>
+                <div class="item-card"><div class="item-name">Bad Boy (Cobalt, Extreme, Le Parfum, Dazzling)</div><div class="item-brand">Carolina Herrera</div></div>
+                <div class="item-card"><div class="item-name">212 VIP Men (Black, Extra, Wild, Wins, Heroes)</div><div class="item-brand">Carolina Herrera</div></div>
+                <div class="item-card"><div class="item-name">Le Male (Elixir, Le Parfum, Paradise Garden)</div><div class="item-brand">Jean Paul Gaultier</div></div>
+                <div class="item-card"><div class="item-name">Le Beau / Le Beau Le Parfum / Ultra Male</div><div class="item-brand">Jean Paul Gaultier</div></div>
+                <div class="item-card"><div class="item-name">Scandal Pour Homme / Absolu / Le Parfum</div><div class="item-brand">Jean Paul Gaultier</div></div>
+                <div class="item-card"><div class="item-name">Acqua Di Giò (Profondo, Profumo, Essenza)</div><div class="item-brand">Giorgio Armani</div></div>
+                <div class="item-card"><div class="item-name">Stronger With You (Intensely, Absolutely, Oud)</div><div class="item-brand">Giorgio Armani</div></div>
+                <div class="item-card"><div class="item-name">Armani Code (Absolu, Profumo)</div><div class="item-brand">Giorgio Armani</div></div>
+                <div class="item-card"><div class="item-name">MYSLF / Y Eau de Parfum / Y Elixir / La Nuit de L'Homme</div><div class="item-brand">Yves Saint Laurent</div></div>
+                <div class="item-card"><div class="item-name">Eros / Eros Flame / Eros Energy / Dylan Blue</div><div class="item-brand">Versace</div></div>
+                <div class="item-card"><div class="item-name">Boss Bottled (Absolute, Infinite, Night) / The Scent</div><div class="item-brand">Hugo Boss</div></div>
+                <div class="item-card"><div class="item-name">Creed Aventus / Royal Oud / Oud Zarian</div><div class="item-brand">Creed</div></div>
+                <div class="item-card"><div class="item-name">Ombré Leather / Tobacco Vanille / Costa Azzurra</div><div class="item-brand">Tom Ford</div></div>
+                <div class="item-card"><div class="item-name">The Most Wanted / Wanted By Night</div><div class="item-brand">Azzaro</div></div>
+                <div class="item-card"><div class="item-name">Polo (Blue, Black, Red, Sport, Ultra Blue)</div><div class="item-brand">Ralph Lauren</div></div>
+                <div class="item-card"><div class="item-name">Valentino Born In Roma Uomo (Intense, Extradose)</div><div class="item-brand">Valentino</div></div>
+                <div class="item-card"><div class="item-name">Gentleman (Reserve Privée, Society, Only)</div><div class="item-brand">Givenchy</div></div>
+                <div class="item-card"><div class="item-name">Bleu de Chanel / Allure Homme Sport</div><div class="item-brand">Chanel</div></div>
+                <div class="item-card"><div class="item-name">Bulgari Man (In Black, Extreme, Wood Essence)</div><div class="item-brand">Bulgari</div></div>
+                <div class="item-card"><div class="item-name">Toy Boy</div><div class="item-brand">Moschino</div></div>
+            </div>
+        </div>
+
+        <!-- UNISEX Y NICHO -->
+        <div class="category-section">
+            <div class="category-title">
+                Fragancias Nicho & Unisex <span class="badge">Alta Gama</span>
+            </div>
+            <div class="items-grid">
+                <div class="item-card"><div class="item-name">Baccarat Rouge 540</div><div class="item-brand">Maison Francis Kurkdjian</div></div>
+                <div class="item-card"><div class="item-name">Erba Pura / Accento / Naxos / La Capitale</div><div class="item-brand">Xerjoff</div></div>
+                <div class="item-card"><div class="item-name">Santal 33 / Gaiac 10 / Vanille 44 / Patchouli 24</div><div class="item-brand">Le Labo</div></div>
+                <div class="item-card"><div class="item-name">Arabians Tonka / Intense Café / Boise Fruite</div><div class="item-brand">Montale</div></div>
+                <div class="item-card"><div class="item-name">Bianco Latte</div><div class="item-brand">Giardini Di Toscana</div></div>
+                <div class="item-card"><div class="item-name">Ombre Nomade / Fleur Du Desert</div><div class="item-brand">Louis Vuitton</div></div>
+                <div class="item-card"><div class="item-name">Lost Cherry / Mandarino Di Amalfi / Neroli Portofino</div><div class="item-brand">Tom Ford</div></div>
+                <div class="item-card"><div class="item-name">Halfeti</div><div class="item-brand">Penhaligon's</div></div>
+                <div class="item-card"><div class="item-name">CK One / CK All / CK Be / Everyone</div><div class="item-brand">Calvin Klein</div></div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p><strong>✨ Consulta por disponibilidad inmediata y entregas personalizadas ✨</strong></p>
+            <p>Aceptamos Efectivo, Transferencias (Mercado Pago / Cuenta DNI / Bancarias) y Cuotas.</p>
+        </div>
+    </div>
+
+</body>
+</html>

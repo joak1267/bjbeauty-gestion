@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJ BEAUTY - Centro de Control y Catálogos Oficiales 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #08060d;
+            --card-bg: #120d1e;
+            --lila-light: #e9d5ff;
+            --lila-primary: #c084fc;
+            --lila-dark: #581c87;
+            --gold-light: #fef08a;
+            --gold-metal: #dfb15b;
+            --gold-dark: #9a6f20;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-gold: rgba(223, 177, 91, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px 70px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(192, 132, 252, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(223, 177, 91, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(18, 13, 30, 0.95) 0%, #08060d 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER PRINCIPAL CON LOGO OFICIAL */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--border-gold);
+            padding-bottom: 30px;
+        }
+
+        .brand-logo-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-metal);
+            box-shadow: 0 0 35px rgba(192, 132, 252, 0.5), 0 0 20px rgba(223, 177, 91, 0.4);
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        .brand-logo-img:hover {
+            transform: scale(1.04) rotate(2deg);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            letter-spacing: 6px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-metal) 60%, var(--lila-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .header-sub {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            color: var(--lila-primary);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .header-desc {
+            max-width: 700px;
+            margin: 14px auto 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* SECCIÓN DESTACADA: 3 CATÁLOGOS PDF OFICIALES */
+        .section-headline {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--gold-metal);
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .section-headline::before, .section-headline::after {
+            content: '';
+            height: 1px;
+            width: 70px;
+            background: linear-gradient(90deg, transparent, var(--gold-metal));
+        }
+        .section-headline::after {
+            background: linear-gradient(90deg, var(--gold-metal), transparent);
+        }
+
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .pdf-card {
+            background: linear-gradient(135deg, rgba(25, 18, 40, 0.9), rgba(12, 9, 20, 0.95));
+            border: 2px solid var(--border-gold);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.7);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .pdf-card:hover {
+            border-color: var(--gold-metal);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 45px rgba(192, 132, 252, 0.3);
+        }
+
+        .pdf-preview-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: top center;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .pdf-content {
+            padding: 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pdf-badge {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        .badge-fem { background: rgba(255, 117, 151, 0.15); border: 1px solid #ff7597; color: #ffb3c6; }
+        .badge-masc { background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #bae6fd; }
+        .badge-esp { background: rgba(223, 177, 91, 0.15); border: 1px solid #dfb15b; color: #ffe6a3; }
+
+        .pdf-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .pdf-desc {
+            font-size: 0.86rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-pdf {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold-metal), var(--lila-primary));
+            color: #06040a;
+            font-weight: 800;
+            font-size: 0.82rem;
+            padding: 10px 14px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .btn-pdf:hover {
+            box-shadow: 0 0 15px rgba(223, 177, 91, 0.8);
+            transform: scale(1.02);
+        }
+
+        /* OTRAS HERRAMIENTAS */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 45px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s;
+        }
+        .tool-card:hover {
+            border-color: var(--lila-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .tool-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .tool-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+        }
+
+        .tool-desc {
+            font-size: 0.83rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+            margin-bottom: 14px;
+        }
+
+        .tool-link-txt {
+            color: var(--lila-primary);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            border-top: 1px solid var(--border-gold);
+            padding-top: 25px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- ENCABEZADO OFICIAL CON EL LOGO EXACTO -->
+        <header>
+            <img src="logo_bj_beauty.png" alt="BJ BEAUTY Logo Oficial" class="brand-logo-img">
+            <h1>BJ BEAUTY</h1>
+            <div class="header-sub">Alta Perfumería • Fragancias Árabes • Línea Automotor</div>
+            <p class="header-desc">
+                Portal unificado de catálogos oficiales 2026. Los 3 catálogos en PDF se encuentran separados por género y listos para enviar a tus clientes o descargar.
+            </p>
+        </header>
+
+        <!-- SECCIÓN 1: LOS 3 CATÁLOGOS PDF SEPARADOS POR GÉNERO -->
+        <div class="section-headline">📖 Catálogos Oficiales en PDF (Por Género)</div>
+
+        <div class="pdf-grid">
+            
+            <!-- 1. CATÁLOGO FEMENINO -->
+            <div class="pdf-card">
+                <img src="preview_catalogo_femenino.jpg" class="pdf-preview-img" alt="Portada Catálogo Femenino">
+                <div class="pdf-content">
+                    <div>
+                        <span class="pdf-badge badge-fem">🌸 Género Femenino • 10 Páginas (2 Col.)</span>
+                        <h2 class="pdf-title">Catálogo Femenino</h2>
+                        <p class="pdf-desc">
+                            Diseño a 2 columnas por hoja: Nuevos Ingresos (Power of You, Valentino), Árabes Femeninas y Colección Clásica completa.
+                        </p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="PDFs/Catalogo_BJ_Beauty_Femenino.pdf" target="_blank" class="btn-pdf">📥 Abrir / Guardar PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. CATÁLOGO MASCULINO -->
+            <div class="pdf-card">
+                <img src="preview_catalogo_masculino.jpg" class="pdf-preview-img" alt="Portada Catálogo Masculino">
+                <div class="pdf-content">
+                    <div>
+                        <span class="pdf-badge badge-masc">👑 Género Masculino • 10 Páginas (2 Col.)</span>
+                        <h2 class="pdf-title">Catálogo Masculino</h2>
+                        <p class="pdf-desc">
+                            Diseño a 2 columnas por hoja: Nuevos Ingresos (Altair, Liquid Brun, Messi), Árabes Virales y Colección Clásica completa.
+                        </p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="PDFs/Catalogo_BJ_Beauty_Masculino.pdf" target="_blank" class="btn-pdf">📥 Abrir / Guardar PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. CATÁLOGO EXCLUSIVO PERFUMERÍA ÁRABE -->
+            <div class="pdf-card">
+                <img src="preview_catalogo_arabes.jpg" class="pdf-preview-img" alt="Portada Catálogo Árabes">
+                <div class="pdf-content">
+                    <div>
+                        <span class="pdf-badge" style="background: rgba(223, 177, 91, 0.2); border: 1px solid #dfb15b; color: #ffe6a3;">🕌 Perfumería Árabe • 6 Páginas (2 Col.)</span>
+                        <h2 class="pdf-title">Catálogo Árabes Dubái</h2>
+                        <p class="pdf-desc">
+                            Colección oriental completa a 2 columnas: Árabes Femeninas, Árabes Masculinas I y II, y Árabes Unisex ($24.000).
+                        </p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="PDFs/Catalogo_BJ_Beauty_Arabes.pdf" target="_blank" class="btn-pdf">📥 Abrir / Guardar PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CATÁLOGO UNISEX & AUTOMOTOR -->
+            <div class="pdf-card">
+                <img src="preview_catalogo_unisex_auto.jpg" class="pdf-preview-img" alt="Portada Catálogo Unisex y Automotor">
+                <div class="pdf-content">
+                    <div>
+                        <span class="pdf-badge badge-esp">✨ Especiales & Auto • 5 Páginas (2 Col.)</span>
+                        <h2 class="pdf-title">Unisex, Nicho & Automóvil</h2>
+                        <p class="pdf-desc">
+                            Incluye Cápsula Fusión, Fragancias Nicho y la <strong>Ficha Oficial de la Línea Automotor con precios de combo</strong>.
+                        </p>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="PDFs/Catalogo_BJ_Beauty_Unisex_y_Automotor.pdf" target="_blank" class="btn-pdf">📥 Abrir / Guardar PDF</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DE LISTADOS EN BLANCO Y NEGRO PARA IMPRIMIR -->
+        <div class="section-headline">🖨️ Listados para Imprimir (Hoja Blanca y Letras Negras)</div>
+        <p style="text-align:center; color:#94a3b8; font-size:0.9rem; margin-top:-15px; margin-bottom:25px;">
+            Formato lista tipo planilla con casillero de control [✓] y precios oficiales. Ahorro total de tinta para imprimir en cualquier impresora común.
+        </p>
+
+        <div class="portal-grid" style="margin-bottom: 45px;">
+
+            <!-- COMPLETO UNIFICADO B&N -->
+            <div class="tool-card" style="border: 2px solid #ffffff; background: #18181b;">
+                <div>
+                    <div class="tool-icon">📚</div>
+                    <h3 class="tool-title" style="color:#ffffff;">Catálogo Completo Unificado</h3>
+                    <p class="tool-desc">Todas las líneas (Femenino, Masculino, Árabes, Unisex y Automotor) en un solo documento continuo de 8 páginas.</p>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:12px;">
+                    <a href="PDFs_Impresion_Blanco_y_Negro/Catalogo_BN_Completo_BJ_Beauty.pdf" target="_blank" class="btn-pdf" style="background:#ffffff; color:#000;">📥 Descargar PDF</a>
+                    <a href="lista_bn_completo.html" target="_blank" class="btn-pdf" style="background:#333; color:#fff;">👁️ Ver Lista</a>
+                </div>
+            </div>
+
+            <!-- FEMENINO B&N -->
+            <div class="tool-card" style="border: 1px solid #c084fc;">
+                <div>
+                    <div class="tool-icon">🌸</div>
+                    <h3 class="tool-title" style="color:#e9d5ff;">Lista Femenina (3 Págs)</h3>
+                    <p class="tool-desc">+240 fragancias femeninas ordenadas alfabéticamente con casilleros para marcar pedidos.</p>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:12px;">
+                    <a href="PDFs_Impresion_Blanco_y_Negro/Catalogo_BN_Femenino.pdf" target="_blank" class="btn-pdf" style="background:#c084fc; color:#000;">📥 Descargar PDF</a>
+                    <a href="lista_bn_femenino.html" target="_blank" class="btn-pdf" style="background:#333; color:#fff;">👁️ Ver Lista</a>
+                </div>
+            </div>
+
+            <!-- MASCULINO B&N -->
+            <div class="tool-card" style="border: 1px solid #38bdf8;">
+                <div>
+                    <div class="tool-icon">👑</div>
+                    <h3 class="tool-title" style="color:#bae6fd;">Lista Masculina (3 Págs)</h3>
+                    <p class="tool-desc">+250 fragancias masculinas clásicas, nuevos ingresos y virales en formato lista.</p>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:12px;">
+                    <a href="PDFs_Impresion_Blanco_y_Negro/Catalogo_BN_Masculino.pdf" target="_blank" class="btn-pdf" style="background:#38bdf8; color:#000;">📥 Descargar PDF</a>
+                    <a href="lista_bn_masculino.html" target="_blank" class="btn-pdf" style="background:#333; color:#fff;">👁️ Ver Lista</a>
+                </div>
+            </div>
+
+            <!-- ÁRABES B&N -->
+            <div class="tool-card" style="border: 1px solid #dfb15b;">
+                <div>
+                    <div class="tool-icon">🕌</div>
+                    <h3 class="tool-title" style="color:#ffe6a3;">Lista Árabes (1 Sola Hoja)</h3>
+                    <p class="tool-desc">Toda la colección oriental de lujo (Lattafa, Afnan, Armaf) concentrada en 1 página A4.</p>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:12px;">
+                    <a href="PDFs_Impresion_Blanco_y_Negro/Catalogo_BN_Arabes.pdf" target="_blank" class="btn-pdf" style="background:#dfb15b; color:#000;">📥 Descargar PDF</a>
+                    <a href="lista_bn_arabes.html" target="_blank" class="btn-pdf" style="background:#333; color:#fff;">👁️ Ver Lista</a>
+                </div>
+            </div>
+
+            <!-- UNISEX Y AUTO B&N -->
+            <div class="tool-card" style="border: 1px solid #10b981;">
+                <div>
+                    <div class="tool-icon">🚗</div>
+                    <h3 class="tool-title" style="color:#a7f3d0;">Unisex & Automotor (1 Sola Hoja)</h3>
+                    <p class="tool-desc">Fragancias nicho, Cápsula Fusión y la tabla de 13 aromas con precios combo en 1 página A4.</p>
+                </div>
+                <div style="display:flex; gap:8px; margin-top:12px;">
+                    <a href="PDFs_Impresion_Blanco_y_Negro/Catalogo_BN_Unisex_y_Automotor.pdf" target="_blank" class="btn-pdf" style="background:#10b981; color:#000;">📥 Descargar PDF</a>
+                    <a href="lista_bn_unisex_y_automotor.html" target="_blank" class="btn-pdf" style="background:#333; color:#fff;">👁️ Ver Lista</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN 2: HERRAMIENTAS ADICIONALES (IMPRESIÓN, FLYERS Y CONTROL) -->
+        <div class="section-headline">🛠️ Materiales de Difusión & Control</div>
+
+        <div class="portal-grid">
+
+            <!-- PÁGINAS INDIVIDUALES -->
+            <a href="paginas_individuales" target="_blank" class="tool-card" style="border: 2px solid #c084fc;">
+                <div>
+                    <div class="tool-icon">🖼️</div>
+                    <h3 class="tool-title">Páginas Individuales HD</h3>
+                    <p class="tool-desc">Cada página de los catálogos exportada como imagen individual lista para mandar directo por WhatsApp a clientes.</p>
+                </div>
+                <div class="tool-link-txt">Abrir Carpeta (31 Fotos) →</div>
+            </a>
+
+            <!-- FICHA AUTOMOTOR -->
+            <a href="linea_auto_bj_beauty.jpg" target="_blank" class="tool-card">
+                <div>
+                    <div class="tool-icon">🚗</div>
+                    <h3 class="tool-title">Ficha Línea Automotor</h3>
+                    <p class="tool-desc">La imagen oficial con el logo BJ BEAUTY, los 13 aromas y el precio del combo ($11.000 / 2x$20.000).</p>
+                </div>
+                <div class="tool-link-txt">Ver Imagen HD →</div>
+            </a>
+
+            <!-- LISTADO HOJA BLANCA -->
+            <a href="listado_impresion_economica.html" target="_blank" class="tool-card">
+                <div>
+                    <div class="tool-icon">📄</div>
+                    <h3 class="tool-title">Listado Hoja Blanca</h3>
+                    <p class="tool-desc">100% blanco y negro para imprimir en A4 con mínimo gasto de tinta, con casillas [ ] para pedidos y stock.</p>
+                </div>
+                <div class="tool-link-txt">Imprimir Planilla →</div>
+            </a>
+
+            <!-- FLYER DE PRECIOS -->
+            <a href="flyer_precios_oficial.jpg" target="_blank" class="tool-card">
+                <div>
+                    <div class="tool-icon">📱</div>
+                    <h3 class="tool-title">Flyer Publicitario</h3>
+                    <p class="tool-desc">Flyer vertical en Ultra HD con precios para historias de Instagram y estados de WhatsApp.</p>
+                </div>
+                <div class="tool-link-txt">Ver Flyer →</div>
+            </a>
+
+            <!-- SISTEMA DE VENTAS -->
+            <a href="sistema_ventas_y_ganancias.html" target="_blank" class="tool-card" style="border: 2px solid var(--gold-metal);">
+                <div>
+                    <div class="tool-icon">💎</div>
+                    <h3 class="tool-title" style="color: var(--gold-light);">Gestión, Costos & Resumen Mensual</h3>
+                    <p class="tool-desc">Panel conectado a MySQL: ventas, costos de mercadería/compras, stock y balances mensuales automáticos con ranking de fragancias.</p>
+                </div>
+                <div class="tool-link-txt">Abrir Sistema de Gestión →</div>
+            </a>
+
+        </div>
+
+        <footer>
+            <p><strong>BJ BEAUTY</strong> • Catálogos Oficiales de Alta Perfumería 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
