@@ -159,13 +159,29 @@ def root():
 
 @app.route('/api/debug', methods=['GET'])
 @app.route('/debug', methods=['GET'])
+@app.route('/api/index', methods=['GET', 'POST', 'PUT', 'DELETE'])
+@app.route('/api/index.py', methods=['GET', 'POST', 'PUT', 'DELETE'])
+@app.route('/index', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def api_debug():
     return jsonify({
         'status': 'ok',
         'path': request.path,
         'path_info': request.environ.get('PATH_INFO'),
-        'matched_path': request.environ.get('HTTP_X_MATCHED_PATH')
+        'matched_path': request.environ.get('HTTP_X_MATCHED_PATH'),
+        'request_uri': request.environ.get('REQUEST_URI'),
+        'headers': {k: v for k, v in request.headers.items()}
     })
+
+@app.errorhandler(404)
+def not_found(e):
+    return jsonify({
+        'error': '404 from Flask',
+        'path': request.path,
+        'path_info': request.environ.get('PATH_INFO'),
+        'matched_path': request.environ.get('HTTP_X_MATCHED_PATH'),
+        'request_uri': request.environ.get('REQUEST_URI'),
+        'headers': {k: v for k, v in request.headers.items()}
+    }), 404
 
 @app.route('/api/estado', methods=['GET'])
 @app.route('/estado', methods=['GET'])
