@@ -27,6 +27,27 @@ try:
 except Exception:
     pass
 
+class PathFixMiddleware:
+    def __init__(self, wsgi_app):
+        self.wsgi_app = wsgi_app
+
+    def __call__(self, environ, start_response):
+        matched = (
+            environ.get('HTTP_X_MATCHED_PATH') or
+            environ.get('x-matched-path') or
+            environ.get('HTTP_X_FORWARDED_URI') or
+            environ.get('REQUEST_URI') or
+            environ.get('RAW_URI')
+        )
+        if matched:
+            path = matched.split('?')[0]
+            if path:
+                environ['PATH_INFO'] = path
+        return self.wsgi_app(environ, start_response)
+
+app.wsgi_app = PathFixMiddleware(app.wsgi_app)
+
+
 TIDB_CONFIG = {
     'host': os.environ.get('TIDB_HOST', 'gateway01.sa-east-1.prod.aws.tidbcloud.com'),
     'port': int(os.environ.get('TIDB_PORT', 4000)),
@@ -131,13 +152,23 @@ def serializar_fila(row):
 
 @app.route('/')
 def root():
+    html_path = os.path.join(os.path.dirname(BASE_DIR), 'sistema_ventas_y_ganancias.html')
+    if os.path.exists(html_path):
+        return send_from_directory(os.path.dirname(BASE_DIR), 'sistema_ventas_y_ganancias.html')
     return send_from_directory(BASE_DIR, 'sistema_ventas_y_ganancias.html')
 
-@app.route('/<path:filename>')
-def static_files(filename):
-    return send_from_directory(BASE_DIR, filename)
+@app.route('/api/debug', methods=['GET'])
+@app.route('/debug', methods=['GET'])
+def api_debug():
+    return jsonify({
+        'status': 'ok',
+        'path': request.path,
+        'path_info': request.environ.get('PATH_INFO'),
+        'matched_path': request.environ.get('HTTP_X_MATCHED_PATH')
+    })
 
 @app.route('/api/estado', methods=['GET'])
+@app.route('/estado', methods=['GET'])
 def api_estado():
     try:
         conn = get_db_connection()
@@ -172,6 +203,7 @@ def api_estado():
         }), 500
 
 @app.route('/api/ventas', methods=['GET'])
+@app.route('/ventas', methods=['GET'])
 def get_ventas():
     try:
         conn = get_db_connection()
@@ -200,6 +232,7 @@ def get_ventas():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/ventas', methods=['POST'])
+@app.route('/ventas', methods=['POST'])
 def add_venta():
     try:
         data = request.get_json(force=True)
@@ -266,6 +299,7 @@ def add_venta():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/ventas/<int:venta_id>', methods=['DELETE'])
+@app.route('/ventas/<int:venta_id>', methods=['DELETE'])
 def delete_venta(venta_id):
     try:
         conn = get_db_connection()
@@ -278,6 +312,7 @@ def delete_venta(venta_id):
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/ventas/migrar', methods=['POST'])
+@app.route('/ventas/migrar', methods=['POST'])
 def migrar_ventas():
     try:
         data = request.get_json(force=True)
@@ -320,6 +355,7 @@ def migrar_ventas():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/compras', methods=['GET'])
+@app.route('/compras', methods=['GET'])
 def get_compras():
     try:
         conn = get_db_connection()
@@ -341,6 +377,7 @@ def get_compras():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/compras', methods=['POST'])
+@app.route('/compras', methods=['POST'])
 def add_compra():
     try:
         data = request.get_json(silent=True) or request.get_json(force=True, silent=True) or {}
@@ -389,6 +426,7 @@ def add_compra():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/compras/<int:compra_id>', methods=['DELETE'])
+@app.route('/compras/<int:compra_id>', methods=['DELETE'])
 def delete_compra(compra_id):
     try:
         conn = get_db_connection()
@@ -401,6 +439,7 @@ def delete_compra(compra_id):
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/resumen-mes', methods=['GET'])
+@app.route('/resumen-mes', methods=['GET'])
 def get_resumen_mes():
     mes = request.args.get('mes') # ej: "2026-09"
     if not mes:
@@ -459,6 +498,7 @@ def get_resumen_mes():
 
 # ==================== CATÁLOGO & STOCK ====================
 @app.route('/api/catalogo', methods=['GET'])
+@app.route('/catalogo', methods=['GET'])
 def get_catalogo():
     """Devuelve todo el catálogo de fragancias para búsqueda y autocompletado"""
     try:
@@ -480,6 +520,7 @@ def get_catalogo():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/stock', methods=['GET'])
+@app.route('/stock', methods=['GET'])
 def get_stock():
     """Buscador y visor de stock"""
     q = (request.args.get('q') or '').strip().lower()
@@ -505,6 +546,7 @@ def get_stock():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/stock/ajustar', methods=['POST'])
+@app.route('/stock/ajustar', methods=['POST'])
 def ajustar_stock():
     """Ajustar cantidad de stock (+1, -1 o fijar valor)"""
     try:
@@ -528,6 +570,7 @@ def ajustar_stock():
 
 # ==================== RESERVAS & ENCARGOS ====================
 @app.route('/api/reservas', methods=['GET'])
+@app.route('/reservas', methods=['GET'])
 def get_reservas():
     try:
         conn = get_db_connection()
@@ -547,6 +590,7 @@ def get_reservas():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/reservas', methods=['POST'])
+@app.route('/reservas', methods=['POST'])
 def add_reserva():
     try:
         data = request.get_json(force=True)
@@ -588,6 +632,7 @@ def add_reserva():
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/reservas/<int:reserva_id>', methods=['PUT'])
+@app.route('/reservas/<int:reserva_id>', methods=['PUT'])
 def update_reserva(reserva_id):
     try:
         data = request.get_json(force=True)
@@ -612,6 +657,7 @@ def update_reserva(reserva_id):
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/reservas/<int:reserva_id>', methods=['DELETE'])
+@app.route('/reservas/<int:reserva_id>', methods=['DELETE'])
 def delete_reserva(reserva_id):
     try:
         conn = get_db_connection()
@@ -624,6 +670,7 @@ def delete_reserva(reserva_id):
         return jsonify({'ok': False, 'error': str(e)}), 500
 
 @app.route('/api/reservas/<int:reserva_id>/convertir', methods=['POST'])
+@app.route('/reservas/<int:reserva_id>/convertir', methods=['POST'])
 def convertir_reserva_a_venta(reserva_id):
     """Convierte una reserva directamente en venta registrada"""
     try:
