@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/sistema_ventas_y_ganancias.html"
+      "source": "/api/(.*)",
+      "destination": "/api/index"
     },
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
+      "source": "/",
+      "destination": "/sistema_ventas_y_ganancias.html"
     }
   ]
 }
