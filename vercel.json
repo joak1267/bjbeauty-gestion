@@ -2,11 +2,15 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index"
+      "destination": "/api/index?__route__=$1"
     },
     {
       "source": "/",
-      "destination": "/sistema_ventas_y_ganancias.html"
+      "destination": "/api/index?__route__=/"
+    },
+    {
+      "source": "/sistema_ventas_y_ganancias.html",
+      "destination": "/api/index?__route__=/"
     }
   ]
 }

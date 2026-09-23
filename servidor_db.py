@@ -27,22 +27,25 @@ try:
 except Exception:
     pass
 
+import urllib.parse
+
 class PathFixMiddleware:
     def __init__(self, wsgi_app):
         self.wsgi_app = wsgi_app
 
     def __call__(self, environ, start_response):
-        matched = (
-            environ.get('HTTP_X_MATCHED_PATH') or
-            environ.get('x-matched-path') or
-            environ.get('HTTP_X_FORWARDED_URI') or
-            environ.get('REQUEST_URI') or
-            environ.get('RAW_URI')
-        )
-        if matched:
-            path = matched.split('?')[0]
-            if path:
-                environ['PATH_INFO'] = path
+        qs = environ.get('QUERY_STRING', '')
+        if '__route__' in qs:
+            params = urllib.parse.parse_qs(qs)
+            if '__route__' in params:
+                route_val = params.pop('__route__')[0].strip('/')
+                if not route_val or route_val == 'index' or route_val == 'index.py':
+                    environ['PATH_INFO'] = '/'
+                elif route_val.startswith('api/'):
+                    environ['PATH_INFO'] = f"/{route_val}"
+                else:
+                    environ['PATH_INFO'] = f"/api/{route_val}"
+                environ['QUERY_STRING'] = urllib.parse.urlencode(params, doseq=True)
         return self.wsgi_app(environ, start_response)
 
 app.wsgi_app = PathFixMiddleware(app.wsgi_app)
@@ -150,12 +153,28 @@ def serializar_fila(row):
             resultado[k] = v
     return resultado
 
+HTML_CACHE = None
+
+def get_html():
+    global HTML_CACHE
+    if HTML_CACHE:
+        return HTML_CACHE
+    candidates = [
+        os.path.join(BASE_DIR, 'sistema_ventas_y_ganancias.html'),
+        os.path.join(os.path.dirname(BASE_DIR), 'sistema_ventas_y_ganancias.html'),
+        os.path.join(os.getcwd(), 'sistema_ventas_y_ganancias.html')
+    ]
+    for c in candidates:
+        if os.path.isfile(c):
+            with open(c, 'r', encoding='utf-8') as f:
+                HTML_CACHE = f.read()
+                return HTML_CACHE
+    return "<h1>BJ Beauty</h1><p>Dashboard cargando...</p>"
+
 @app.route('/')
+@app.route('/sistema_ventas_y_ganancias.html')
 def root():
-    html_path = os.path.join(os.path.dirname(BASE_DIR), 'sistema_ventas_y_ganancias.html')
-    if os.path.exists(html_path):
-        return send_from_directory(os.path.dirname(BASE_DIR), 'sistema_ventas_y_ganancias.html')
-    return send_from_directory(BASE_DIR, 'sistema_ventas_y_ganancias.html')
+    return get_html(), 200, {'Content-Type': 'text/html; charset=utf-8'}
 
 @app.route('/api/debug', methods=['GET'])
 @app.route('/debug', methods=['GET'])
