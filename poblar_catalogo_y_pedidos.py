@@ -315,6 +315,28 @@ def registrar_pedidos_usuario(conn):
             """)
             print("Encargo de Erba Pura a proveedor registrado.")
 
+        # 5. Encargar Perfumes Givenchy (Very Irresistible, Pour Homme, Gentleman Only Absolut, Blue Label)
+        givenchy_items = [
+            'Very Irresistible For Men (Givenchy)',
+            'Pour Homme (Givenchy)',
+            'Gentleman Only Absolut (Givenchy)',
+            'Blue Label (Givenchy)'
+        ]
+        for frag in givenchy_items:
+            cur.execute("SELECT id FROM reservas_pedidos WHERE nombre_fragancia = %s AND tipo_operacion = 'Encargo Proveedor';", (frag,))
+            if not cur.fetchone():
+                cur.execute("""
+                    INSERT INTO reservas_pedidos (
+                        fecha, cliente, telefono, tipo_producto, nombre_fragancia,
+                        cantidad, precio_estimado, tipo_operacion, estado, notas
+                    ) VALUES (
+                        NOW(), 'Proveedor / Fábrica', '', 'perfume', %s,
+                        1, 22000.00, 'Encargo Proveedor', 'Por Encargar',
+                        'Encargo a proveedor / reposición de stock. Costo mayorista: $12.000 | Venta catálogo: $22.000.'
+                    );
+                """, (frag,))
+                print(f"Encargo a proveedor registrado: {frag}")
+
 if __name__ == '__main__':
     conn = get_db()
     print("Conectado a MySQL:", conn.get_server_info())
